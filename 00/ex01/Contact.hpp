@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:37:43 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/07/07 11:51:19 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/07/17 10:25:43 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ class Contact{
         bool    set_contact();
         void    get_contact(int index)const;
 };
+
 #endif
