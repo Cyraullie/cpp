@@ -1,2 +1,4 @@
 00/ex00/megaphone
 .vscode/settings.json
+*/*/*.o
+*/*/*.d

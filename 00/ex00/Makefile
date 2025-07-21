@@ -6,7 +6,7 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/05/07 15:41:15 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/07/21 11:10:35 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM = rm -rf
 
 SRCS = megaphone.cpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 GREEN = \033[1;32m
 CYAN = \033[1;36m
@@ -39,7 +39,7 @@ header:
 	@echo "BY CGOLDENS"
 	@echo "$(RESET)"
 
-%.o: %.c
+%.o: %.cpp
 	@$(CC) $(CFLAGS) -I ./ -c -o $@ $<
 
 $(NAME): $(OBJS) 
