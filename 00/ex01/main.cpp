@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:37 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/07/21 11:18:49 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/07/21 11:49:18 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ int	main()
 {
 	std::string command;
 
-	//while (true)
-	//{
-	std::cout << "commande : ";
-	std::getline(std::cin, command);
-	if (command == "ADD")
-		printf("ADD");
-	//}
+	while (true)
+	{
+        std::getline(std::cin, command);
+		if (command == "ADD")
+			printf("ADD\n");
+	}
 }
