@@ -6,28 +6,21 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:40 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/07/17 10:50:02 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:57:30 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-std::string Contact::_fields_name[5] =
-{
-	"First Name",
-	"Last Name",
-	"Nickname",
-	"Phone Number",
-	"Darkest Secret"
-};
+Contact::Contact(){}
 
-Contact::Contact()
-{
-	for (int i = FirstName; i <= DarkestSecret; i++)
-		this->_informations[i] = std::string();
-	return;
-}
+Contact::~Contact(){}
 
-Contact::~Contact()
+void	set_contact(const std::string &fName, const std::string &lName, const std::string &nick, const std::string &phone, const std::string &secret)
 {
+	firstName = fName;
+	lastName = lName;
+	nickname = nick;
+	phoneNumber = phone;
+	darkestSecret = secret;
 }
