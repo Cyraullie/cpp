@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:37 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/07/21 15:10:36 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:39:19 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,37 @@
 //TODO ADD
 //TODO SEARCH
 
+void displayCommand()
+{
+	std::cout << "Enter command ADD/SEARCH/EXIT: ";
+}
+
+bool handleInputError()
+{
+    if (!std::cin)
+	{
+        if (std::cin.eof())
+		{
+            std::cin.clear();
+            std::cout << "\nCTRL+D was pressed. Exiting the program.\n";
+            return true;
+        } else
+		{
+            std::cin.clear();
+            std::cout << "An error occurred while reading your input. Please try again.\n";
+        }
+    }
+    return false;
+}
+
+//TODO delete space in start +end
+//TODO convert multiple space to one
+//TODO check if text are not empty or space
+
 int	addContact(PhoneBook& phonebook)
 {
+	//TODO phoneNumber only numeric
+	//TODO firstName & lastName no numeric
 	(void)phonebook;
 	if (std::cin.eof())
 		return (-2);
@@ -75,8 +104,11 @@ int	main()
 
 	while (true)
 	{
-		//TODO display information
+		displayCommand();
         std::getline(std::cin, command);
+		if (handleInputError()) {
+            break;
+        }
 		if (command == "ADD")
 			addContact(phonebook);
 		else if (command == "SEARCH")
