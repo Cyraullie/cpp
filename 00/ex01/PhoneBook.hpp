@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:57:38 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/07/17 10:27:08 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/07/23 14:34:40 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,21 @@
 # include <cstdlib>
 # include "Contact.hpp"
 
+# define MAX_CONTACTS 8
+
 class PhoneBook{
 	private:
-		Contact	_contacts[8];
-		int		_index;
-		bool	_full;
+		int 	_num_entries;
 
 	public:
-		PhoneBook(void);
-		~PhoneBook(void);
-
-		void	set_information(void);
-		void	get_information(void)const;
-		void	show_instruction(void);
+		Contact contacts[MAX_CONTACTS];
+		// Constructors
+		PhoneBook();
+		~PhoneBook();
+		
+		void addContact(std::string first_name, std::string last_name, std::string nick_name,
+			std::string phone_number, std::string darkest_secret);
+		Contact getContact(int id);
 };
 
 #endif

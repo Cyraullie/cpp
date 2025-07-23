@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:37:43 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/07/22 13:57:53 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/07/23 13:53:14 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ class Contact{
 	public:
 		Contact();
 		~Contact();
+		Contact(std::string first_name, std::string last_name, std::string nick_name,
+			std::string phone_number, std::string darkest_secret);
 
-		void	set_contact(const std::string &firstName,const std::string &lastName,const std::string &nickname,const std::string &phoneNumber,const std::string &darkestSecret);
 };
 
 #endif
