@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:40 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/05 16:14:14 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/06 14:28:42 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,52 @@ Contact::Contact()
 	lastName = "";
 }
 
-Contact::Contact(std::string first_name, std::string last_name, std::string nick_name,
-		std::string phone_number, std::string darkest_secret)
+void Contact::set_firstName(std::string firstName)
 {
-	this->firstName = first_name;
-	this->lastName = last_name;
-	this->nickName = nick_name;
-	this->phoneNumber = phone_number;
-	this->darkestSecret = darkest_secret;
+	this->firstName = firstName;
 }
 
-Contact::~Contact()
+void Contact::set_lastName(std::string lastName)
 {
-	
+	this->lastName = lastName;
 }
 
+void Contact::set_nickName(std::string nickName)
+{
+	this->nickName = nickName;
+}
+
+void Contact::set_phoneNumber(std::string phoneNumber)
+{
+	this->phoneNumber = phoneNumber;
+}
+
+void Contact::set_darkestSecret(std::string darkestSecret)
+{
+	this->darkestSecret = darkestSecret;
+}
+
+std::string Contact::get_firstName()
+{
+	return (firstName);
+}
+
+std::string Contact::get_lastName()
+{
+	return (lastName);
+}
+
+std::string Contact::get_nickName()
+{
+	return (nickName);
+}
+
+std::string Contact::get_phoneNumber()
+{
+	return (phoneNumber);
+}
+
+std::string Contact::get_darkestSecret()
+{
+	return (darkestSecret);
+}
