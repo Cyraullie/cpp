@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:35 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/07 15:55:45 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:56:27 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ void	PhoneBook::addContact(int id)
 }
 
 
+
+
+
 void	PhoneBook::searchContact()
 {
 	std::string tmp;
@@ -86,6 +89,7 @@ void	PhoneBook::searchContact()
 		if (check_num(tmp) && !tmp.empty())
 		{
 			id = tmp[0] - '0';
+			//TODO check if contact exist (is not empty)
 			std::cout << "'" << contacts[id].get_firstName() << "'" << id << std::endl;
 		}
 	}
