@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:37 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/07 13:59:30 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/07 14:42:22 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main()
 			id++;
 		}
 		else if (command == "SEARCH")
-			searchContact(&phonebook);
+			phonebook.searchContact();
 		else if (command == "EXIT")
 			break;
 	}

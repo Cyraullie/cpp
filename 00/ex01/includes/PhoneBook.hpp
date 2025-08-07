@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:57:38 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/07 13:32:24 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/07 14:42:47 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ class PhoneBook{
 		Contact contacts[MAX_CONTACTS];
 
 	public:
-		
-		void	searchContact(int id);
 		void 	addContact(int id);
+		void	searchContact();
 };
 
 #endif
