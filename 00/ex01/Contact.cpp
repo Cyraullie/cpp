@@ -6,18 +6,13 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:40 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/06 14:28:42 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:59:43 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 // Constructors
-Contact::Contact()
-{
-	firstName = "";
-	lastName = "";
-}
 
 void Contact::set_firstName(std::string firstName)
 {

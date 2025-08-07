@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:37 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/07/23 14:40:00 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:59:30 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,39 +43,13 @@ bool handleInputError()
     return false;
 }
 
-std::string get_userdata(std::string msg)
-{
-    std::string user_data;
-	while (user_data.length() == 0)
-	{
-		std::cout << msg;
-		std::getline(std::cin, user_data);
-	}
-	return (user_data);
-}
+
 
 //TODO delete space in start +end
 //TODO convert multiple space to one
 //TODO check if text are not empty or space
 
-int	addContact(PhoneBook *phonebook)
-{
-	//TODO phoneNumber only numeric
-	//TODO firstName & lastName no numeric
-	if (std::cin.eof())
-		return (-2);
-	Contact	contact;
-	std::string	firstName, lastName, nickname, phoneNumber, darkestSecret;
-    
-    firstName = get_userdata("Enter first name: ");
-    lastName = get_userdata("Enter last name: ");
-    nickname = get_userdata("Enter nickname: ");
-    phoneNumber = get_userdata("Enter phone number: ");
-    darkestSecret = get_userdata("Enter darkest secret: ");
-  	std::cout << "" << firstName << " " << lastName << " " << nickname << " " << phoneNumber << " " << darkestSecret << "\n";
-	phonebook->addContact(firstName, lastName, nickname, phoneNumber, darkestSecret);
-    return (0);
-}
+
 
 int searchContact(PhoneBook *phonebook)
 {
@@ -85,25 +59,33 @@ int searchContact(PhoneBook *phonebook)
     (void)id;
     (void)phonebook;
 
-    test = get_userdata("Enter phone number: ");
+    test = "caca";
     std::cout << test;
     return 0;
 }
 
 int	main()
 {
+	int			id = 0;
 	PhoneBook	phonebook;
 	std::string	command;
 
 	while (true)
 	{
+		if (id == MAX_CONTACTS)
+		{
+			id = 0;
+		}
 		displayCommand();
         std::getline(std::cin, command);
 		if (handleInputError()) {
             break;
         }
 		if (command == "ADD")
-			addContact(&phonebook);
+		{
+			phonebook.addContact(id);
+			id++;
+		}
 		else if (command == "SEARCH")
 			searchContact(&phonebook);
 		else if (command == "EXIT")

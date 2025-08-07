@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:37:43 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/06 13:51:17 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:48:56 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ class Contact{
 		std::string	get_nickName();
 		std::string	get_phoneNumber();
 		std::string	get_darkestSecret();
-		Contact();
-		~Contact();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:57:38 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/07/23 14:34:40 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/07 13:32:24 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,12 @@
 
 class PhoneBook{
 	private:
-		int 	_num_entries;
+		Contact contacts[MAX_CONTACTS];
 
 	public:
-		Contact contacts[MAX_CONTACTS];
-		// Constructors
-		PhoneBook();
-		~PhoneBook();
 		
-		void addContact(std::string first_name, std::string last_name, std::string nick_name,
-			std::string phone_number, std::string darkest_secret);
-		Contact getContact(int id);
+		void	searchContact(int id);
+		void 	addContact(int id);
 };
 
 #endif
