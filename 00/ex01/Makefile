@@ -6,19 +6,22 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/07/22 14:01:02 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/08/07 14:20:54 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
+SRCDIR = srcs/
+OBJDIR = objs/
+INCDIR = includes/
+
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98 -MMD
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-SRCS = Contact.cpp PhoneBook.cpp main.cpp
-
-OBJS = $(SRCS:.cpp=.o)
+SRCS = $(shell find $(SRCDIR) -type f -name "*.cpp")
+OBJS = $(SRCS:$(SRCDIR)%.cpp=$(OBJDIR)%.o)
 
 GREEN = \033[1;32m
 CYAN = \033[1;36m
@@ -39,7 +42,8 @@ header:
 	@echo "BY CGOLDENS"
 	@echo "$(RESET)"
 
-%.o: %.cpp
+${OBJDIR}%.o: $(SRCDIR)%.cpp
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS) 
@@ -48,10 +52,10 @@ $(NAME): $(OBJS)
 
 clean:
 	@echo "$(YELLOW)Cleaning object files...$(RESET)"
-	$(RM) $(OBJS)
+	$(RM) $(OBJDIR)
 
 fclean: clean
-	@echo "$(YELLOW)Cleaning $(NAME) binary"
+	@echo "$(YELLOW)Cleaning $(NAME) binary$(RESET)"
 	$(RM) $(NAME)
 
 
