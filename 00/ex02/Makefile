@@ -6,19 +6,22 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/05/07 15:10:12 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/08/07 14:25:59 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -std=c++98
+SRCDIR = srcs/
+OBJDIR = objs/
+INCDIR = includes/
+
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-SRCS = megaphone.cpp
-
-OBJS = $(SRCS:.c=.o)
+SRCS = $(shell find $(SRCDIR) -type f -name "*.cpp")
+OBJS = $(SRCS:$(SRCDIR)%.cpp=$(OBJDIR)%.o)
 
 GREEN = \033[1;32m
 CYAN = \033[1;36m
@@ -39,8 +42,9 @@ header:
 	@echo "BY CGOLDENS"
 	@echo "$(RESET)"
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -I ./ -c -o $@ $<
+${OBJDIR}%.o: $(SRCDIR)%.cpp
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -I$(INCDIR) -c -o $@ $<
 
 $(NAME): $(OBJS) 
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
@@ -48,11 +52,10 @@ $(NAME): $(OBJS)
 
 clean:
 	@echo "$(YELLOW)Cleaning object files...$(RESET)"
-	$(MAKE) clean -s -C $(LIBFT_PATH) 
-	$(RM) $(OBJS)
+	$(RM) $(OBJDIR)
 
 fclean: clean
-	@echo "$(YELLOW)Cleaning $(NAME) binary
+	@echo "$(YELLOW)Cleaning $(NAME) binary$(RESET)"
 	$(RM) $(NAME)
 
 

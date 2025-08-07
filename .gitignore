@@ -1,5 +1,5 @@
 00/ex00/megaphone
-.vscode/settings.json
-*/*/*.o
-*/*/*.d
 00/ex01/phonebook
+.vscode/settings.json
+*/*/*/*.o
+*/*/*.o
