@@ -6,13 +6,12 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:35 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/08 14:41:52 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/08 14:51:12 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <cstdio>
-#include <algorithm>
 #include <iostream>
 #include <string>
 #include <limits>
@@ -24,13 +23,9 @@ std::string delete_space(std::string s)
 	int end = s.length() - 1;
 
 	while (s[start] == ' ')
-	{
 		start++;
-	}
 	while (s[end] == ' ')
-	{
 		end--;
-	}
 	end++;
 	s = s.substr(start, end);
 	return s;
@@ -46,7 +41,7 @@ std::string	get_userdata(std::string msg)
 		std::getline(std::cin, user_data);
 		if (std::cin.fail() || std::cin.eof())
 		{
-			user_data == delete_space(user_data);
+			user_data = delete_space(user_data);
 			return (user_data);
 		}
 	}
