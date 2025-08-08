@@ -6,16 +6,36 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:35 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/08 11:46:38 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/08 14:41:32 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <cstdio>
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <limits>
 #include <cctype>
+
+std::string delete_space(std::string s)
+{
+	int start = 0;
+	int end = s.length() - 1;
+
+	while (s[start] == ' ')
+	{
+		start++;
+	}
+	while (s[end] == ' ')
+	{
+		end--;
+	}
+	end++;
+	s = s.substr(start, end);
+	return s;
+}
+
 
 std::string	get_userdata(std::string msg)
 {
@@ -25,8 +45,13 @@ std::string	get_userdata(std::string msg)
 		std::cout << msg;
 		std::getline(std::cin, user_data);
 		if (std::cin.fail() || std::cin.eof())
+		{
+			user_data == delete_space(user_data);
 			return (user_data);
+		}
 	}
+	//TODO substr space
+	user_data = delete_space(user_data);
 	return (user_data);
 }
 
@@ -61,29 +86,20 @@ void	PhoneBook::addContact(int id)
 {
 	if(id < MAX_CONTACTS)
 	{
-		contacts[id].set_firstName(get_userdata("Enter first name: "));
-		contacts[id].set_lastName(get_userdata("Enter last name: "));
-		contacts[id].set_nickName(get_userdata("Enter nickname: "));
-		contacts[id].set_phoneNumber(get_userdata_num("Enter phone number: "));
-		contacts[id].set_darkestSecret(get_userdata("Enter darkest secret: "));		
+		contacts[id].set_firstName(get_userdata("Enter first name     : "));
+		contacts[id].set_lastName(get_userdata("Enter last name      : "));
+		contacts[id].set_nickName(get_userdata("Enter nickname       : "));
+		contacts[id].set_phoneNumber(get_userdata_num("Enter phone number   : "));
+		contacts[id].set_darkestSecret(get_userdata("Enter darkest secret : "));		
 	}
-	//else
-	//	contacts[search_oldest_entry(contacts)] = Contact(first_name, last_name, nick_name, phone_number, darkest_secret);
 }
 
 std::string right_length(std::string s)
 {
-	if (s.length() < MAX_LENGTH)
-	{
-		while (s.length() < MAX_LENGTH)
-		{
-			s = " " + s;
-		}
-	}
-	else if (s.length() > MAX_LENGTH)
+	if (s.length() > MAX_LENGTH)
 	{
 		s = s.substr(0, 9);
-		s = s + ".";
+		s += ".";
 	}
 	return (s);
 }
@@ -115,10 +131,10 @@ int	display_contacts(Contact contacts[8])
 	}
 	while (i < MAX_CONTACTS && check_exist(i, contacts))
 	{
-		std::cout << "|         " << i;
-		std::cout << "|" << right_length(contacts[i].get_firstName());
-		std::cout << "|" << right_length(contacts[i].get_lastName());
-		std::cout << "|" << right_length(contacts[i].get_nickName()) << "|" << std::endl;
+		std::cout << "|" << std::setw(10) << i;
+		std::cout << "|" << std::setw(10) << right_length(contacts[i].get_firstName());
+		std::cout << "|" << std::setw(10) << right_length(contacts[i].get_lastName());
+		std::cout << "|" << std::setw(10) << right_length(contacts[i].get_nickName()) << "|" << std::endl;
 		i++;
 	}
 	if (i == 0)
