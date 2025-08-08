@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:37 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/07 14:42:22 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/08 11:48:54 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include <string>
 #include <limits>
 #include <cctype>
-//TODO ADD
-//TODO SEARCH
 
 void displayCommand()
 {
@@ -49,20 +47,6 @@ bool handleInputError()
 //TODO convert multiple space to one
 //TODO check if text are not empty or space
 
-
-
-int searchContact(PhoneBook *phonebook)
-{
-    int id;
-    std::string test;
-	Contact	contact;
-    (void)id;
-    (void)phonebook;
-
-    test = "caca";
-    std::cout << test;
-    return 0;
-}
 
 int	main()
 {

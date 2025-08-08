@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 11:57:38 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/07 14:42:47 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/08 11:49:01 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "Contact.hpp"
 
 # define MAX_CONTACTS 8
+# define MAX_LENGTH 10
 
 class PhoneBook{
 	private:

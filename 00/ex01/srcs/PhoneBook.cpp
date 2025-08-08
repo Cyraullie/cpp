@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:35 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/07 15:56:27 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/08 11:46:38 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,26 +71,91 @@ void	PhoneBook::addContact(int id)
 	//	contacts[search_oldest_entry(contacts)] = Contact(first_name, last_name, nick_name, phone_number, darkest_secret);
 }
 
+std::string right_length(std::string s)
+{
+	if (s.length() < MAX_LENGTH)
+	{
+		while (s.length() < MAX_LENGTH)
+		{
+			s = " " + s;
+		}
+	}
+	else if (s.length() > MAX_LENGTH)
+	{
+		s = s.substr(0, 9);
+		s = s + ".";
+	}
+	return (s);
+}
 
+int check_exist(int id, Contact contacts[8])
+{
 
+	if (contacts[id].get_firstName().empty())
+		return (0);
+	if (contacts[id].get_lastName().empty())
+		return (0);
+	if (contacts[id].get_nickName().empty())
+		return (0);
+	if (contacts[id].get_phoneNumber().empty())
+		return (0);
+	if (contacts[id].get_darkestSecret().empty())
+		return (0);
+	return (1);
+}
+
+int	display_contacts(Contact contacts[8])
+{
+	int i = 0;
+
+	if (check_exist(i, contacts))
+	{
+		std::cout << "|     INDEX| FIRSTNAME|  LASTNAME|  NICKNAME|" << std::endl;
+		std::cout << "|----------|----------|----------|----------|" << std::endl;
+	}
+	while (i < MAX_CONTACTS && check_exist(i, contacts))
+	{
+		std::cout << "|         " << i;
+		std::cout << "|" << right_length(contacts[i].get_firstName());
+		std::cout << "|" << right_length(contacts[i].get_lastName());
+		std::cout << "|" << right_length(contacts[i].get_nickName()) << "|" << std::endl;
+		i++;
+	}
+	if (i == 0)
+	{
+		std::cout << "You didn't have any contacts for the moment" << std::endl;
+		return (0);
+	}
+	return (1);
+}
 
 
 void	PhoneBook::searchContact()
 {
 	std::string tmp;
 	int id = -1;
-	//TODO display all contact first
-	while (tmp.empty() || !check_num(tmp))
+	if (display_contacts(contacts))
 	{
-		std::cout << "Please select an index : " ;
-		std::getline(std::cin, tmp);
-		if (std::cin.fail() || std::cin.eof())
-			return ;
-		if (check_num(tmp) && !tmp.empty())
+		while (tmp.empty() || !check_num(tmp))
 		{
-			id = tmp[0] - '0';
-			//TODO check if contact exist (is not empty)
-			std::cout << "'" << contacts[id].get_firstName() << "'" << id << std::endl;
+			std::cout << "Please select an index : " ;
+			std::getline(std::cin, tmp);
+			if (std::cin.fail() || std::cin.eof())
+				return ;
+			if (check_num(tmp) && !tmp.empty())
+			{
+				id = tmp[0] - '0';
+				if (id < MAX_CONTACTS && check_exist(id, contacts))
+				{
+					std::cout << "First name     : " << contacts[id].get_firstName() << std::endl;
+					std::cout << "Last name      : " << contacts[id].get_lastName() << std::endl;
+					std::cout << "Nickname       : " << contacts[id].get_nickName() << std::endl;
+					std::cout << "Phone number   : " << contacts[id].get_phoneNumber() << std::endl;
+					std::cout << "Darkest secret : " << contacts[id].get_darkestSecret() << std::endl;
+				}
+				else
+					std::cout << "Invalid index" << std::endl;
+			}
 		}
 	}
 }
