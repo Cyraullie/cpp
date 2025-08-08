@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:35 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/08 14:41:32 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/08 14:41:52 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ std::string	get_userdata(std::string msg)
 			return (user_data);
 		}
 	}
-	//TODO substr space
 	user_data = delete_space(user_data);
 	return (user_data);
 }

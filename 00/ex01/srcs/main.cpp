@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:36:37 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/08 11:48:54 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/08 14:42:03 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,6 @@ bool handleInputError()
     }
     return false;
 }
-
-
-
-//TODO delete space in start +end
-//TODO convert multiple space to one
-//TODO check if text are not empty or space
-
 
 int	main()
 {
