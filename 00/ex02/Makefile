@@ -6,15 +6,15 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/08/07 14:25:59 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/08/12 15:29:47 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = account
 
-SRCDIR = srcs/
-OBJDIR = objs/
-INCDIR = includes/
+SRCDIR = ./
+OBJDIR = ./
+INCDIR = ./
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -43,7 +43,6 @@ header:
 	@echo "$(RESET)"
 
 ${OBJDIR}%.o: $(SRCDIR)%.cpp
-	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -I$(INCDIR) -c -o $@ $<
 
 $(NAME): $(OBJS) 
