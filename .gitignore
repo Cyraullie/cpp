@@ -1,5 +1,6 @@
-00/ex00/megaphone
-00/ex01/phonebook
 .vscode/settings.json
 */*/*/*.o
 */*/*.o
+00/ex00/megaphone
+00/ex01/phonebook
+00/ex02/account
