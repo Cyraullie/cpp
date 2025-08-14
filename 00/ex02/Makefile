@@ -6,14 +6,14 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/08/12 15:29:47 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/08/14 14:03:58 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = account
 
 SRCDIR = ./
-OBJDIR = ./
+
 INCDIR = ./
 
 CC = c++
