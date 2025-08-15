@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 11:18:50 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/15 11:36:38 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/15 15:42:23 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int main(void)
 {
-	Zombie zombie("rodeur");
-	Zombie *rampant;
+	Zombie *zombieArray;
+	int N = 3;
 
-	zombie.announce();
-	randomChump("feur");
-	rampant = newZombie("rampant");
-	rampant->announce();
-	delete rampant;
+	zombieArray = zombieHorde(N, "walker");
+	for (int i = 0; i < N; i++)
+	{
+		std::cout << "Num: " << i << std::endl;
+		zombieArray[i].announce();
+		std::cout << std::endl;
+	}
+	delete[] zombieArray;
 }

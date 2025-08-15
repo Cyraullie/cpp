@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 15:37:09 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/08/15 11:42:25 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/08/15 15:37:15 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Zombie{
 		std::string _name;
 		
 	public:
-		Zombie(std::string);
+		Zombie(std::string name);
 		~Zombie();
 		void	announce(void);
 };
