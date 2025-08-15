@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/08/15 11:45:14 by cgoldens         ###   ########.fr        #
+#    Created: 2025/08/15 13:51:20 by cgoldens          #+#    #+#              #
+#    Updated: 2025/08/15 13:51:22 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = zombiehorde
 
 SRCDIR = ./
 
