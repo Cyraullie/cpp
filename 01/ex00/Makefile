@@ -6,11 +6,11 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/08/14 14:03:58 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/08/15 11:45:14 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = account
+NAME = zombie
 
 SRCDIR = ./
 
@@ -51,7 +51,7 @@ $(NAME): $(OBJS)
 
 clean:
 	@echo "$(YELLOW)Cleaning object files...$(RESET)"
-	$(RM) $(OBJDIR)
+	$(RM) $(OBJS)
 
 fclean: clean
 	@echo "$(YELLOW)Cleaning $(NAME) binary$(RESET)"
