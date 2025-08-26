@@ -6,15 +6,15 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/08/07 14:23:51 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/08/26 15:37:05 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = sed
 
-SRCDIR = srcs/
-OBJDIR = objs/
-INCDIR = includes/
+SRCDIR = ./
+
+INCDIR = ./
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -31,19 +31,21 @@ RESET = \033[0m
 # Règles
 all: header $(NAME)
 
+# Règles
+all: header $(NAME)
+
 header:
 	@echo "$(GREEN)"
-	@echo "   __________  ____  ____  ____        _______  ______ ___"
-	@echo "  / ____/ __ \/ __ \/ __ \/ __ \      / ____/ |/ / __ <  /"
-	@echo " / /   / /_/ / /_/ / / / / / / /_____/ __/  |   / / / / / "
-	@echo "/ /___/ ____/ ____/ /_/ / /_/ /_____/ /___ /   / /_/ / /  "
-	@echo "\____/_/   /_/    \____/\____/     /_____//_/|_\____/_/   "
-	@echo "                                                          "
+	@echo "   __________  ____  ____ ___      _______  ______  __ __"
+	@echo "  / ____/ __ \/ __ \\/ __ <  /     / ____/ |/ / __ \/ // /"
+	@echo " / /   / /_/ / /_/ / / / / /_____/ __/  |   / / / / // /_"
+	@echo "/ /___/ ____/ ____/ /_/ / /_____/ /___ /   / /_/ /__  __/"
+	@echo "\\____/_/   /_/    \\____/_/     /_____//_/|_\____/  /_/   "
+	@echo "                                                         "
 	@echo "BY CGOLDENS"
 	@echo "$(RESET)"
 
 ${OBJDIR}%.o: $(SRCDIR)%.cpp
-	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -I$(INCDIR) -c -o $@ $<
 
 $(NAME): $(OBJS) 
@@ -52,7 +54,7 @@ $(NAME): $(OBJS)
 
 clean:
 	@echo "$(YELLOW)Cleaning object files...$(RESET)"
-	$(RM) $(OBJDIR)
+	$(RM) $(OBJS)
 
 fclean: clean
 	@echo "$(YELLOW)Cleaning $(NAME) binary$(RESET)"
