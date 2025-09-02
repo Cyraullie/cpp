@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 11:16:30 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/02 12:55:44 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:00:10 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,39 @@ void	Harl::error(void)
 void	Harl::complain(std::string level)
 {
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*funcs[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	int i;
 
-	for (int i = 0; i <= 4; i++)
+	for (i = 0; i <= 4; i++)
 	{
 		if (level == levels[i])
 		{
-			(this->*funcs[i])();
-			return ;
+			break ;
 		}
 	}
-	std::cerr << "No such complaint level" << std::endl;
+	
+	switch (i)
+	{
+		case 0:
+			std::cout << "[ " << levels[0] << " ]" << std::endl;
+			this->debug();
+			std::cout << std::endl;
+    		// fallthrough
+		case 1:
+			std::cout << "[ " << levels[1] << " ]" << std::endl;
+			this->info();
+			std::cout << std::endl;
+    		// fallthrough
+		case 2:
+			std::cout << "[ " << levels[2] << " ]" << std::endl;
+			this->warning();
+			std::cout << std::endl;
+    		// fallthrough
+		case 3:
+			std::cout << "[ " << levels[3] << " ]" << std::endl;
+			this->error();
+			std::cout << std::endl;
+			break;
+		default:
+			std::cerr << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
 }
