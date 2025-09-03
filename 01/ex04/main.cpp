@@ -6,13 +6,14 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 14:47:20 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/01 16:11:37 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/03 15:33:30 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <bits/stdc++.h> 
 
 std::string ft_replace(std::string buffer, char *src, char *dst)
 {
@@ -36,6 +37,7 @@ int main(int argc, char **argv)
 	std::ifstream src;
 	std::ofstream dest;
 	std::string buffer;
+	//char *rfile;
 	
 	if (argc != 4)
 	{
@@ -49,7 +51,9 @@ int main(int argc, char **argv)
 		std::cerr << "Please enter a valid name file" << std::endl;		
 		return (1);
 	}
-	dest.open("dest.txt");
+	//rfile = strcat(argv[1], ".replace");
+	//(void)rfile;
+	dest.open("dest");
 	if (!dest.is_open())
 	{
 		std::cerr << "Error with the opening of dest.txt" << std::endl;		
