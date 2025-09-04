@@ -6,16 +6,25 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 13:41:20 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/02 13:55:16 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/04 15:18:20 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Fixed.hpp"
 
 Fixed::Fixed(): _fixedPoint(0)
 {
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int n): _fixedPoint(n << this->_fract)
+{
+	std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float n): _fixedPoint(roundf(n * (1 << Fixed::_fract)))
+{
+	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy)
@@ -47,4 +56,20 @@ void	Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_fixedPoint = raw;
+}
+
+float Fixed::toFloat( void ) const
+{
+	return ((float)_fixedPoint / (1 << Fixed::_fract));
+}
+
+int Fixed::toInt( void ) const
+{
+	return (this->_fixedPoint >> Fixed::_fract);
+}
+
+std::ostream &operator<<(std::ostream &stream, const Fixed &fixed)
+{
+	stream << fixed.toFloat();
+	return (stream);
 }
