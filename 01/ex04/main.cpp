@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 14:47:20 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/03 15:33:30 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/04 13:20:45 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ std::string ft_replace(std::string buffer, char *src, char *dst)
 	n = buffer.find(s1);
 	while (n >= 0)
 	{
+		std::cout << n << std::endl;
 		buffer.erase(n, s1.length());
 		buffer.insert(n, s2);
 		n = buffer.find(s1);
@@ -37,6 +38,7 @@ int main(int argc, char **argv)
 	std::ifstream src;
 	std::ofstream dest;
 	std::string buffer;
+	std::string file_name = argv[1];
 	//char *rfile;
 	
 	if (argc != 4)
@@ -53,7 +55,7 @@ int main(int argc, char **argv)
 	}
 	//rfile = strcat(argv[1], ".replace");
 	//(void)rfile;
-	dest.open("dest");
+	dest.open((file_name + ".replace").c_str());
 	if (!dest.is_open())
 	{
 		std::cerr << "Error with the opening of dest.txt" << std::endl;		
