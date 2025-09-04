@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 14:47:20 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/04 13:20:45 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/04 14:19:38 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ std::string ft_replace(std::string buffer, char *src, char *dst)
 	n = buffer.find(s1);
 	while (n >= 0)
 	{
+		std::cout << buffer.substr(n, s1.length()) << std::endl;
 		std::cout << n << std::endl;
 		buffer.erase(n, s1.length());
 		buffer.insert(n, s2);
-		n = buffer.find(s1);
+		n = buffer.find(s1, n + s2.length());
 	}
 	return (buffer);
 
@@ -47,7 +48,7 @@ int main(int argc, char **argv)
 		std::cerr << "./sed <filename> <s1> <s2>" << std::endl;		
 		return (1);
 	}
-	src.open(argv[1]);
+	src.open(file_name.c_str());
 	if (!src.is_open())
 	{
 		std::cerr << "Please enter a valid name file" << std::endl;		
