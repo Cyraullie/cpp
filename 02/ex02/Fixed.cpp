@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 13:41:20 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/09 14:47:33 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/09 15:32:08 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ Fixed::Fixed(const Fixed& copy)
 	this->_fixedPoint = copy.getRawBits();
 }
 
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
 Fixed &Fixed::operator=(const Fixed& src)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
@@ -43,10 +48,8 @@ Fixed &Fixed::operator=(const Fixed& src)
 	return (*this);
 }
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+
+
 
 int		Fixed::getRawBits(void) const
 {
@@ -73,3 +76,24 @@ std::ostream &operator<<(std::ostream &stream, const Fixed &fixed)
 	stream << fixed.toFloat();
 	return (stream);
 }
+
+Fixed min(Fixed& a, Fixed& b)
+{
+	return (a < b ? a : b);
+}
+
+const Fixed min(const Fixed& a, const Fixed& b)
+{
+	return (a < b ? a : b);
+}
+
+Fixed max(Fixed& a, Fixed& b)
+{
+	return (a > b ? a : b);
+}
+
+const Fixed max(const Fixed &a, const Fixed &b)
+{
+	return (a > b ? a : b);
+}
+
