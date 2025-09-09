@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 13:41:20 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/09 14:47:33 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/09 15:30:40 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ Fixed::Fixed(const float n): _fixedPoint(roundf(n * (1 << Fixed::_fract)))
 	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& copy)
+Fixed::Fixed(const Fixed& copy): _fixedPoint(copy._fixedPoint)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_fixedPoint = copy.getRawBits();
 }
 
 Fixed &Fixed::operator=(const Fixed& src)
