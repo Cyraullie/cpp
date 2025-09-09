@@ -6,7 +6,7 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/09/02 14:03:39 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/09/09 15:05:20 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,6 @@ GREEN = \033[1;32m
 CYAN = \033[1;36m
 YELLOW = \033[1;33m
 RESET = \033[0m
-
-# Règles
-all: header $(NAME)
 
 # Règles
 all: header $(NAME)
