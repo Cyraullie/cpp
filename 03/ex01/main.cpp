@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 15:56:36 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 14:22:24 by cgoldens         ###   ########.fr       */
+/*   Created: 2025/09/10 15:56:43 by cgoldens          #+#    #+#             */
+/*   Updated: 2025/09/11 14:30:55 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#include "ScavTrap.hpp"
 
-# include <string>
-
-class ClapTrap
+int	main()
 {
-private:
-	std::string	_name;
-	int			_hp;
-	int			_energy;
-	int			_damage;
-public:
-	ClapTrap(std::string name);
-	~ClapTrap();
+	ClapTrap a("Clappy");
+	a.attack("enemy1");
 
-	void	attack(const std::string& target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
+	std::cout << "----------------------" << std::endl;
 
-	std::string getName();
-	int getDamage();
-};
+	ScavTrap b("Scrappy");
+	b.attack("enemy2");
+	b.guardGate();
 
-#endif
+	return 0;
+}

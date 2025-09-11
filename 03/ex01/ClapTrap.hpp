@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:56:36 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 14:22:24 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:28:47 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-private:
+protected:
 	std::string	_name;
 	int			_hp;
 	int			_energy;
