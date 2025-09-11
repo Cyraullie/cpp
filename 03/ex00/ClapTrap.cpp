@@ -6,12 +6,11 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:56:39 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 13:15:13 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:22:01 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include <iostream>
 
 ClapTrap::ClapTrap(std::string name): _name(name),  _hp(10), _energy(1), _damage(0)
 {
@@ -22,6 +21,27 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
+ClapTrap::ClapTrap(const ClapTrap& src)
+{
+	this->_name = src.getName();
+	this->_hp = src.getHP();
+	this->_energy = src.getEnergy();
+	this->_damage = src.getDamage();
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap& cpy)
+{
+	if (this != &cpy)
+	{
+		this->_name = cpy.getName();
+		this->_hp = cpy.getHP();
+		this->_energy = cpy.getEnergy();
+		this->_damage = cpy.getDamage();
+	}
+	return *this;
+}
+
 
 void ClapTrap::attack(const std::string& target)
 {
@@ -64,12 +84,23 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "ClapTrap " << this->_name << " repair himself, he regains " << amount << " hit points, he have now " << this->_hp << " hp!" << std::endl;
 }
 
-std::string ClapTrap::getName()
+
+std::string ClapTrap::getName() const
 {
 	return (this->_name);
 }
 
-int ClapTrap::getDamage()
+int ClapTrap::getHP() const
+{
+	return (this->_hp);
+}
+
+int ClapTrap::getEnergy() const
+{
+	return (this->_energy);
+}
+
+int ClapTrap::getDamage() const
 {
 	return (this->_damage);
 }

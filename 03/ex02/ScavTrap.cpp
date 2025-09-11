@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:23:50 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 16:27:38 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:29:43 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,17 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& cpy) {
 
 void	ScavTrap::guardGate()
 {
+	if (this->_energy <= 0)
+	{
+		std::cout << "ScavTrap " << this->_name << " try to active Gate keeper " << std::endl;
+		std::cout << "Not enough energy" << std::endl;
+		return ;
+	}
+	if (this->_hp <= 0)
+	{
+		std::cout << "No hit point ScavTrap " << this->_name << " is out of order" << std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
 }
 
@@ -47,7 +58,7 @@ void	ScavTrap::attack(const std::string& target)
 	}
 	if (this->_hp <= 0)
 	{
-		std::cout << "No hit point this ScavTrap is KO" << std::endl;
+		std::cout << "No hit point ScavTrap " << this->_name << " is out of order" << std::endl;
 		return ;
 	}
 	std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_damage << " points of damage!" << std::endl;

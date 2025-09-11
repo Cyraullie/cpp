@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:56:39 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 16:23:35 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:23:58 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ ClapTrap &ClapTrap::operator=(const ClapTrap& cpy)
 	return *this;
 }
 
-
 void ClapTrap::attack(const std::string& target)
 {
 	if (this->_energy <= 0)
@@ -53,7 +52,7 @@ void ClapTrap::attack(const std::string& target)
 	}
 	if (this->_hp <= 0)
 	{
-		std::cout << "No hit point this ClapTrap is KO" << std::endl;
+		std::cout << "No hit point ClapTrap " << this->_name << " is out of order" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_damage << " points of damage!" << std::endl;
