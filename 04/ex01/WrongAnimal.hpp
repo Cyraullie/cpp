@@ -1,0 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/12 13:30:20 by cgoldens          #+#    #+#             */
+/*   Updated: 2025/09/12 13:31:53 by cgoldens         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
+
+#include <string>
+#include <iostream>
+
+class WrongAnimal
+{
+	private:
+		std::string type;
+	
+	public:
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal& cpy);
+		WrongAnimal& operator=(const WrongAnimal& src);
+		virtual ~WrongAnimal();
+
+		virtual void	makeSound() const;
+		std::string	getType() const;
+};
+
+#endif
