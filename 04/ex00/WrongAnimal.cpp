@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 12:57:24 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/12 13:06:26 by cgoldens         ###   ########.fr       */
+/*   Created: 2025/09/12 13:38:11 by cgoldens          #+#    #+#             */
+/*   Updated: 2025/09/12 13:38:25 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
 
-Animal::Animal()
+#include "WrongAnimal.hpp"
+
+WrongAnimal::WrongAnimal()
 {
-	std::cout << "Animal has been created" << std::endl;
+	std::cout << "WrongAnimal has been created" << std::endl;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "Animal has been destroyed" << std::endl;	
+	std::cout << "WrongAnimal has been destroyed" << std::endl;	
 }
 
-Animal::Animal(const Animal& cpy)
+WrongAnimal::WrongAnimal(const WrongAnimal& cpy)
 {
 	type = cpy.type;
 }
 
-Animal &Animal::operator=(const Animal& src)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal& src)
 {
 	if (this != &src)
 	{
@@ -36,12 +37,12 @@ Animal &Animal::operator=(const Animal& src)
 	return *this;
 }
 
-std::string Animal::getType() const
+std::string WrongAnimal::getType() const
 {
 	return this->type;
 }
 
-void	Animal::makeSound() const
+void	WrongAnimal::makeSound() const
 {
-	std::cout << "Some generic Animal sound" << std::endl;
+	std::cout << "Wrong animal sound" << std::endl;
 }

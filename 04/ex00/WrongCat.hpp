@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/11 17:21:22 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/12 13:12:10 by cgoldens         ###   ########.fr       */
+/*   Created: 2025/09/12 13:32:04 by cgoldens          #+#    #+#             */
+/*   Updated: 2025/09/12 13:37:39 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog: public Animal
+class WrongCat: public WrongAnimal
 {
 	private:
 		std::string type;
 	
 	public:
-		Dog();
-		Dog(const Dog& cpy);
-		Dog& operator=(const Dog& src);
-		~Dog();
+		WrongCat();
+		WrongCat(const WrongCat& cpy);
+		WrongCat& operator=(const WrongCat& src);
+		~WrongCat();
 
 		void	makeSound() const;
 };

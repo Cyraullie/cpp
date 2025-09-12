@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:18:21 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 17:21:11 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/12 13:06:28 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@ class Animal
 		std::string type;
 	
 	public:
-		void	makeSound();
+		Animal();
+		Animal(const Animal& cpy);
+		Animal& operator=(const Animal& src);
+		virtual ~Animal();
+
+		virtual void	makeSound() const;
+		std::string	getType() const;
 };
 
 #endif

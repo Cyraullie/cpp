@@ -6,16 +6,14 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:22:00 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 17:22:09 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/12 13:32:37 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Cat_HPP
-# define Cat_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 #include "Animal.hpp"
-#include <string>
-#include <iostream>
 
 class Cat: public Animal
 {
@@ -23,7 +21,12 @@ class Cat: public Animal
 		std::string type;
 	
 	public:
-		void	makeSound();
+		Cat();
+		Cat(const Cat& cpy);
+		Cat& operator=(const Cat& src);
+		~Cat();
+
+		void	makeSound() const;
 };
 
 #endif

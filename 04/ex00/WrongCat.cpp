@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 13:10:04 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/12 13:13:06 by cgoldens         ###   ########.fr       */
+/*   Created: 2025/09/12 13:36:19 by cgoldens          #+#    #+#             */
+/*   Updated: 2025/09/12 13:37:53 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat() : Animal()
+WrongCat::WrongCat() : WrongAnimal()
 {
-	this->type = "Cat";
-	std::cout << "Cat has been created" << std::endl;
+	this->type = "WrongCat";
+	std::cout << "WrongCat has been created" << std::endl;
 }
 
-Cat::Cat(const Cat& cpy) : Animal()
+WrongCat::WrongCat(const WrongCat& cpy) : WrongAnimal()
 {
 	this->type = cpy.type;
 }
 
-Cat &Cat::operator=(const Cat& src)
+WrongCat &WrongCat::operator=(const WrongCat& src)
 {
 	if (this != &src)
 	{
@@ -32,12 +32,12 @@ Cat &Cat::operator=(const Cat& src)
 	return *this;
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-	std::cout << "Cat is dead D:" << std::endl;
+	std::cout << "WrongCat is dead D:" << std::endl;
 }
 
-void	Cat::makeSound() const
+void	WrongCat::makeSound() const
 {
-	std::cout << "Meow Meow" << std::endl;
+	std::cout << "Wrong cat sound" << std::endl;
 }
