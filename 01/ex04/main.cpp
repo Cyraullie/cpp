@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 14:47:20 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/04 14:19:38 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/16 10:04:31 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int main(int argc, char **argv)
 	std::ofstream dest;
 	std::string buffer;
 	std::string file_name = argv[1];
-	//char *rfile;
 	
 	if (argc != 4)
 	{
@@ -54,8 +53,6 @@ int main(int argc, char **argv)
 		std::cerr << "Please enter a valid name file" << std::endl;		
 		return (1);
 	}
-	//rfile = strcat(argv[1], ".replace");
-	//(void)rfile;
 	dest.open((file_name + ".replace").c_str());
 	if (!dest.is_open())
 	{
