@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 14:02:44 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/12 14:12:35 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/18 14:57:32 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 class Brain
 {
 	private:
-		std::string ideas[];
+		std::string ideas[100];
 	public:
-		
+		Brain();
+		~Brain();
 };
 
 #endif

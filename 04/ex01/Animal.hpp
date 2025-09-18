@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:18:21 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/12 13:06:28 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/18 14:58:30 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+
 
 class Animal
 {
