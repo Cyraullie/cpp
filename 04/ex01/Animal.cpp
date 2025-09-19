@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:57:24 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/12 13:06:26 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/19 14:15:13 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ Animal::~Animal()
 
 Animal::Animal(const Animal& cpy)
 {
-	type = cpy.type;
+	_type = cpy._type;
 }
 
 Animal &Animal::operator=(const Animal& src)
 {
 	if (this != &src)
 	{
-		type = src.type;
+		_type = src._type;
 	}
 	return *this;
 }
 
 std::string Animal::getType() const
 {
-	return this->type;
+	return this->_type;
 }
 
 void	Animal::makeSound() const
