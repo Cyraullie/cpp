@@ -6,18 +6,26 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:23:50 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 16:29:43 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/24 15:19:05 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap(): ClapTrap("ScavTrap default")
+{
+	std::cout << "Default ScavTrap constructor called" << std::endl;
+	this->_hp = 100;
+	this->_energy = 50;
+	this->_damage = 20;
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	this->_hp = 100;
 	this->_energy = 50;
 	this->_damage = 20;
-	std::cout << "Default ScavTrap constructor called for " << this->_name << std::endl;
+	std::cout << "ScavTrap constructor called for " << this->_name << std::endl;
 }
 
 ScavTrap::~ScavTrap()

@@ -6,15 +6,20 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:56:39 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 16:22:01 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/24 14:43:11 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name): _name(name),  _hp(10), _energy(1), _damage(0)
+ClapTrap::ClapTrap(): _name("Default"), _hp(10), _energy(10), _damage(0)
 {
 	std::cout << "Default ClapTrap constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name): _name(name),  _hp(10), _energy(1), _damage(0)
+{
+	std::cout << "ClapTrap constructor with name " << name << " called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()

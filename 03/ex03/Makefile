@@ -6,11 +6,11 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/07 14:59:43 by cgoldens          #+#    #+#              #
-#    Updated: 2025/09/23 15:54:26 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/09/24 13:04:27 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ClapTrap
+NAME = DiamondTrap
 
 SRCDIR = ./
 

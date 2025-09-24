@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:56:36 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/11 16:22:34 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/24 14:43:43 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ClapTrap
 		int			_energy;
 		int			_damage;
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		~ClapTrap();
 		ClapTrap(const ClapTrap& src);
