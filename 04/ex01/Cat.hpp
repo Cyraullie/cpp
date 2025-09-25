@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:22:00 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/19 14:14:36 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/25 15:02:15 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Cat: public Animal
 {
 	private:
-		std::string _type;
 		Brain *_brain;
 	
 	public:
@@ -28,6 +27,7 @@ class Cat: public Animal
 		~Cat();
 
 		void	makeSound() const;
+		Brain	&getBrain();
 };
 
 #endif
