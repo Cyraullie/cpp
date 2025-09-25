@@ -6,14 +6,14 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/11 17:17:10 by cgoldens          #+#    #+#              #
-#    Updated: 2025/09/11 17:17:16 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/09/25 13:48:26 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Animal
 
 SRCDIR = ./
-
+OBJDIR = ./build/
 INCDIR = ./
 
 CC = c++
@@ -43,6 +43,7 @@ header:
 	@echo "$(RESET)"
 
 ${OBJDIR}%.o: $(SRCDIR)%.cpp
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -I$(INCDIR) -c -o $@ $<
 
 $(NAME): $(OBJS) 
