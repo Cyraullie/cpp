@@ -6,7 +6,7 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/11 17:17:10 by cgoldens          #+#    #+#              #
-#    Updated: 2025/09/25 13:48:26 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/09/25 15:31:42 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ $(NAME): $(OBJS)
 clean:
 	@echo "$(YELLOW)Cleaning object files...$(RESET)"
 	$(RM) $(OBJS)
+	$(RM) $(OBJDIR)
 
 fclean: clean
 	@echo "$(YELLOW)Cleaning $(NAME) binary$(RESET)"
