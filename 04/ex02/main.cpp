@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:42:31 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/26 11:46:04 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:52:42 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,21 @@ int main()
 {
 // const AAnimal a; 
 	// abstract class can't be instancied
-	//const AAnimal* i = new Dog();
-	//const AAnimal* j = new Cat();
+	const AAnimal* i = new Dog();
+	const AAnimal* j = new Cat();
 	
 	std::cout << "----------" << std::endl;
-	Dog realdog;
+	const Dog* realdog = dynamic_cast<const Dog*>(i);
 	if (realdog)
 	{
-		realdog->getBrain()->addIdeas("play with a ball");
+		realdog->getBrain().addIdea("play with a ball");
+		realdog->getBrain().getIdea(4);
 	}
-	Cat realcat;
+	const Cat* realcat = dynamic_cast<const Cat*>(j);
 	if (realcat)
 	{
-		realcat->getBrain()->addIdeas("be usefull");
+		realcat->getBrain().addIdea("be usefull");
+		realdog->getBrain().getIdea(-1);
 	}
 	std::cout << "----------" << std::endl;
 
