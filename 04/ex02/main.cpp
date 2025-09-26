@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:42:31 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/26 11:52:42 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:55:56 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main()
 {
 // const AAnimal a; 
 	// abstract class can't be instancied
+	//const AAnimal* x = new AAnimal();
 	const AAnimal* i = new Dog();
 	const AAnimal* j = new Cat();
 	
