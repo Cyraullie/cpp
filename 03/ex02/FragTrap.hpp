@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 15:22:59 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/24 15:19:54 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 14:06:12 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ class FragTrap: public ClapTrap
 		
 		void	highFivesGuys(void);
 		void	attack(const std::string &target);
+		
+	protected:
+		static const unsigned int	_initial_hp = 100;
+		static const unsigned int	_initial_energy = 100;
+		static const unsigned int	_initial_damage = 30;
 };
 
 #endif

@@ -24,6 +24,10 @@ class ClapTrap
 		int			_energy;
 		int			_damage;
 
+		static const unsigned int _initial_hp = 10;
+		static const unsigned int _initial_energy = 10;
+		static const unsigned int _initial_damage = 0;
+
 	public:
 		ClapTrap();
 		ClapTrap(std::string name);

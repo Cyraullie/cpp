@@ -6,18 +6,18 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 15:56:39 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/24 14:43:50 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 13:58:30 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name("Default"), _hp(10), _energy(10), _damage(0)
+ClapTrap::ClapTrap(): _name("Default"), _hp(this->_initial_hp), _energy(this->_initial_energy), _damage(this->_initial_damage)
 {
 	std::cout << "Default ClapTrap constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name): _name(name),  _hp(10), _energy(1), _damage(0)
+ClapTrap::ClapTrap(std::string name): _name(name), _hp(this->_initial_hp), _energy(this->_initial_energy), _damage(this->_initial_damage)
 {
 	std::cout << "ClapTrap constructor with name " << name << " called" << std::endl;
 }
@@ -66,8 +66,13 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->_hp -= amount;
-	std::cout << "ClapTrap " << this->_name << " take " << amount << " damage, he have now " << this->_hp << " hp!" << std::endl;
+	if (this->_hp <= 0)
+		std::cout << "ClapTrap " << this->_name << "is already out" << std::endl;
+	else
+	{
+		this->_hp -= amount;
+		std::cout << "ClapTrap " << this->_name << " take " << amount << " damage, he have now " << this->_hp << " hp!" << std::endl;
+	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)

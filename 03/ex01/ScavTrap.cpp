@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:23:50 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/24 15:18:19 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 14:09:01 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 ScavTrap::ScavTrap(): ClapTrap("ScavTrap default")
 {
 	std::cout << "Default ScavTrap constructor called" << std::endl;
-	this->_hp = 100;
-	this->_energy = 50;
-	this->_damage = 20;
+	this->_hp = this->_initial_hp;
+	this->_energy = this->_initial_energy;
+	this->_damage = this->_initial_damage;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	this->_hp = 100;
-	this->_energy = 50;
-	this->_damage = 20;
+	this->_hp = this->_initial_hp;
+	this->_energy = this->_initial_energy;
+	this->_damage = this->_initial_damage;
 	std::cout << "ScavTrap constructor called for " << this->_name << std::endl;
 }
 
@@ -42,6 +42,17 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& cpy) {
 
 void	ScavTrap::guardGate()
 {
+	if (this->_energy <= 0)
+	{
+		std::cout << "ScavTrap " << this->_name << " try to active Gate keeper " << std::endl;
+		std::cout << "Not enough energy" << std::endl;
+		return ;
+	}
+	if (this->_hp <= 0)
+	{
+		std::cout << "No hit point ScavTrap " << this->_name << " is out of order" << std::endl;
+		return ;
+	}
 	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
 }
 
