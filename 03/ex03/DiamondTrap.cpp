@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:05:20 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/26 14:10:22 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 15:33:35 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 DiamondTrap::DiamondTrap(): ClapTrap("Default DiamondTrap_clap_name"),FragTrap(), ScavTrap(), _name("Default DiamondTrap")
 {
-	this->_hp = 100; // from FragTrap
-	this->_damage = 30; // from FragTrap
+	this->_hp = FragTrap::_initial_hp; // from FragTrap
+	this->_damage = FragTrap::_initial_damage; // from FragTrap
 	std::cout << "Default DiamondTrap constructor called" << std::endl;
 }
 
