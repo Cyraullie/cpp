@@ -6,36 +6,53 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:42:31 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/25 15:25:14 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:46:04 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-
 
 int main()
 {
-	Dog a;
-	Dog b;
-	Dog ca(a);
+// const AAnimal a; 
+	// abstract class can't be instancied
+	//const AAnimal* i = new Dog();
+	//const AAnimal* j = new Cat();
+	
+	std::cout << "----------" << std::endl;
+	Dog realdog;
+	if (realdog)
+	{
+		realdog->getBrain()->addIdeas("play with a ball");
+	}
+	Cat realcat;
+	if (realcat)
+	{
+		realcat->getBrain()->addIdeas("be usefull");
+	}
+	std::cout << "----------" << std::endl;
 
-	std::cout << "*****TEST DEEP COPY AND OTHERS*****" << std::endl;
-	std::cout << "a: " << a.getType() << " think: " << a.getBrain().getIdea(0) << std::endl;
-	std::cout << "changing idea of b..." << std::endl;
-	b.getBrain().addIdea("SLEEPING");
-	std::cout << "b: " << b.getType() << " think: " << b.getBrain().getIdea(0) << std::endl;
-	std::cout << "ca: " << ca.getType() << " think: " << ca.getBrain().getIdea(0) << std::endl;
-	std::cout << "assignment of b to a..." << std::endl;
-	a = b;
-	std::cout << "a: " << a.getType() << " think: " << a.getBrain().getIdea(0) << std::endl;
-	std::cout << "ca: " << ca.getType() << " think: " << ca.getBrain().getIdea(0) << std::endl;
-	std::cout << "changing idea of b..." << std::endl;
-	b.getBrain().addIdea("PLAYING");
-	std::cout << "b: " << b.getType() << " think: " << b.getBrain().getIdea(0) << std::endl;
-	std::cout << "a: " << a.getType() << " think: " << a.getBrain().getIdea(0) << std::endl;
-	std::cout << "ca: " << ca.getType() << " think: " << ca.getBrain().getIdea(0) << std::endl;
+	delete i;
+	delete j;
+
+	std::cout << "<-------------------------------------------->" << std::endl;
+
+	int	nbr = 4;
+
+	const AAnimal* Animals[nbr];
+
+	for (int i = 0; i != nbr; i++)
+	{
+		if ((i % 2) == 0)
+			Animals[i] = new Dog();
+		else
+			Animals[i] = new Cat();
+	}
+	std::cout << "--------deleting---------" << std::endl;
+	for (int i = 0; i != nbr; i++)
+	{
+		delete Animals[i];
+	}
 }

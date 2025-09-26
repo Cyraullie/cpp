@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:57:24 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/25 15:06:43 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:38:12 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal(): _type("Something")
+AAnimal::AAnimal(): _type("Something")
 {
-	std::cout << "Animal has been created" << std::endl;
+	std::cout << "AAnimal has been created" << std::endl;
 }
 
-Animal::Animal(std::string type): _type(type)
+AAnimal::AAnimal(std::string type): _type(type)
 {
-	std::cout << "Animal constructor called with the type " << type << std::endl;
+	std::cout << "AAnimal constructor called with the type " << type << std::endl;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Animal has been destroyed" << std::endl;	
+	std::cout << "AAnimal has been destroyed" << std::endl;	
 }
 
-Animal::Animal(const Animal& cpy): _type(cpy._type)
+AAnimal::AAnimal(const AAnimal& cpy): _type(cpy._type)
 {
 	
 }
 
-Animal &Animal::operator=(const Animal& src)
+AAnimal &AAnimal::operator=(const AAnimal& src)
 {
 	if (this != &src)
 	{
@@ -41,20 +41,21 @@ Animal &Animal::operator=(const Animal& src)
 	return *this;
 }
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
 	return this->_type;
 }
 
-void	Animal::makeSound() const
+void	AAnimal::makeSound() const
 {
-	std::cout << "Some generic Animal sound" << std::endl;
+	std::cout << "Some generic AAnimal sound" << std::endl;
 }
-
+/*
 // DO NOT USE !!!!!!!!!!
 
-Brain &Animal::getBrain() const
+Brain &AAnimal::getBrain() const
 {
 	Brain *brain = new Brain;
 	return (*brain);
 }
+*/

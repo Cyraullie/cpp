@@ -6,17 +6,17 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:10:28 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/25 15:28:42 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:40:55 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
-Dog::Dog(): Animal("Dog"), _brain(new Brain)
+Dog::Dog(): AAnimal("Dog"), _brain(new Brain)
 {
 	std::cout << "Default Dog constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &cpy): Animal(cpy._type), _brain(new Brain)
+Dog::Dog(const Dog &cpy): AAnimal(cpy._type), _brain(new Brain)
 {
 	this->_type = cpy._type;
 	for (int i = 0; i < 100; i++)

@@ -6,16 +6,16 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:22:00 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/25 15:02:15 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:40:52 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-class Cat: public Animal
+class Cat: public AAnimal
 {
 	private:
 		Brain *_brain;

@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:18:21 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/25 15:47:45 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:36:19 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AANIMAL_HPP
 # define AANIMAL_HPP
 
-# include <string>
-# include <iostream>
-# include "Brain.hpp"
+#include <string>
+#include <iostream>
+#include "Brain.hpp"
+
 
 class AAnimal
 {
