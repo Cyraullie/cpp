@@ -1,0 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/30 14:59:08 by cgoldens          #+#    #+#             */
+/*   Updated: 2025/09/30 15:04:35 by cgoldens         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ICHARCTER_HPP
+# define ICHARCTER_HPP
+
+# include "AMateria.hpp"
+# include <string>
+
+class ICharacter
+{
+	public:
+		virtual ~ICharacter() {};
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;	
+};
+
+#endif
