@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:47:46 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/01 13:48:38 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/01 15:44:34 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 MateriaSource::MateriaSource(): IMateriaSource(), _materias()
 {
-
+	std::cout << "Default MateriaSource constructor called" << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& cpy): IMateriaSource(), _materias()
@@ -23,6 +23,7 @@ MateriaSource::MateriaSource(const MateriaSource& cpy): IMateriaSource(), _mater
 	{
 		this->_materias[i] = cpy._materias[i]->clone();
 	}
+	std::cout << "Copy MateriaSource constructor called" << std::endl;
 }
 
 MateriaSource::~MateriaSource()
@@ -31,6 +32,7 @@ MateriaSource::~MateriaSource()
 	{
 		if (this->_materias[i])
 		{
+			std::cout << "delete materias" << std::endl;
 			delete(this->_materias[i]);
 			this->_materias[i] = NULL;
 		}
@@ -46,6 +48,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource& src)
 			delete(this->_materias[i]);
 			this->_materias[i] = NULL;
 		}
+		std::cout << "MateriaSource assignment operator called" << std::endl;
 		this->_materias[i] = src._materias[i]->clone();
 	}
 	return (*this);
@@ -55,6 +58,7 @@ void MateriaSource::learnMateria(AMateria* materia)
 {
 	if (!materia)
 	{
+		std::cout << "invalid materia ! " << std::endl;
 		return ;
 	}
 	for (int i = 0; i < MAX_MATERIAS; i++)
@@ -62,6 +66,7 @@ void MateriaSource::learnMateria(AMateria* materia)
 		if (!this->_materias[i])
 		{
 			this->_materias[i] = materia->clone();
+			std::cout << materia->getType() << " stock in spot of MateriaSource number " << i << std::endl;
 			return ;
 		}
 	}
@@ -73,8 +78,10 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	{
 		if (this->_materias[i]->getType() == type)
 		{
+			std::cout << this->_materias[i]->getType() << " created !" << std::endl;
 			return (this->_materias[i]->clone());
 		}
 	}
+	std::cout << "Materia with the type " << type << "doesn't exist !" << std::endl;
 	return (NULL);
 }
