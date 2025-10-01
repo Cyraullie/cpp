@@ -4,8 +4,8 @@
 set -euo pipefail
 
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 NomClasse"
-  exit 1
+echo "Usage: $0 NomClasse"
+exit 1
 fi
 
 classname="$1"
@@ -17,8 +17,8 @@ guard="$(echo "$classname" | tr '[:lower:]' '[:upper:]')_HPP"
 
 # Vérification si les fichiers existent déjà
 if [ -e "$header" ] || [ -e "$source" ]; then
-  echo "Erreur : $header ou $source existe déjà."
-  exit 1
+echo "Erreur : $header ou $source existe déjà."
+exit 1
 fi
 
 # Écriture du header
@@ -28,24 +28,23 @@ cat > "$header" <<EOF
 #define ${guard}
 
 #include <string>
-#include <utility> // std::move
+#include <iostream>
 
 class ${classname} {
-public:
-    // --- Canonical form (Rule of Five) ---
-    ${classname}();                                // Default constructor
-    ${classname}(const ${classname}& other);       // Copy constructor
-    ${classname}& operator=(const ${classname}& other); // Copy assignment
-    ${classname}(${classname}&& other) noexcept;   // Move constructor
-    ${classname}& operator=(${classname}&& other) noexcept; // Move assignment
-    ~${classname}();                               // Destructor
+	private:
+		std::string _name;
 
-    // --- Example methods ---
-    void setName(const std::string& name);
-    const std::string& getName() const noexcept;
+	public:
+		${classname}();										// Default constructor
+		${classname}(std::string name);						// Data constructor
+		${classname}(const ${classname}& cpy);				// Copy constructor
+		${classname}& operator=(const ${classname}& src);	// Copy assignment
+		~${classname}();									// Destructor
 
-private:
-    std::string name_;
+		// --- Example methods ---
+		void setName(const std::string& name);
+		const std::string& getName() const;
+
 };
 
 #endif // ${guard}
@@ -56,40 +55,47 @@ cat > "$source" <<EOF
 #include "${header}"
 
 // Default constructor
-${classname}::${classname}() : name_("") {}
-
-// Copy constructor
-${classname}::${classname}(const ${classname}& other) : name_(other.name_) {}
-
-// Copy assignment
-${classname}& ${classname}::operator=(const ${classname}& other) {
-    if (this != &other) {
-        name_ = other.name_;
-    }
-    return *this;
+${classname}::${classname}() : _name("")
+{
+	std::cout << "Default ${classname} constructor called" << std::endl;
 }
 
-// Move constructor
-${classname}::${classname}(${classname}&& other) noexcept : name_(std::move(other.name_)) {}
+// Data constructor
+${classname}::${classname}(std::string name) : _name(name)
+{
+	std::cout << " ${classname} constructor called for " << name << std::endl;
+}
 
-// Move assignment
-${classname}& ${classname}::operator=(${classname}&& other) noexcept {
-    if (this != &other) {
-        name_ = std::move(other.name_);
-    }
-    return *this;
+// Copy constructor
+${classname}::${classname}(const ${classname}& cpy) : _name(cpy._name)
+{
+
+}
+
+// Copy assignment
+${classname}& ${classname}::operator=(const ${classname}& src)
+{
+	if (this != &src) {
+		_name = src._name;
+	}
+	return *this;
 }
 
 // Destructor
-${classname}::~${classname}() = default;
+${classname}::~${classname}()
+{
+	std::cout << " ${classname} destructor called for " << this->_name << std::endl;
+};
 
 // Example methods
-void ${classname}::setName(const std::string& name) {
-    name_ = name;
+void ${classname}::setName(const std::string& name) 
+{
+	_name = name;
 }
 
-const std::string& ${classname}::getName() const noexcept {
-    return name_;
+const std::string& ${classname}::getName() const 
+{
+	return _name;
 }
 EOF
 
