@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:42:27 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/01 11:56:31 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/01 13:57:28 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ Character::~Character()
 	for (int i = 0; i < INV_SIZE; i++)
 	{
 		if (this->_inventory[i])
+		{
 			delete(this->_inventory[i]);
+			this->_inventory[i] = NULL;
+		}
 	}
 }
 
@@ -47,7 +50,10 @@ Character &Character::operator=(const Character& src)
 		for (int i = 0; i < 4; i++)
 		{
 			if (this->_inventory[i])
-				delete this->_inventory[i];
+			{
+				delete(this->_inventory[i]);
+				this->_inventory[i] = NULL;
+			}
 			if (src._inventory[i])
 				this->_inventory[i] = src._inventory[i]->clone();
 		}
@@ -64,14 +70,37 @@ std::string const & Character::getName() const
 void Character::equip(AMateria* m)
 {
 	//TODO verifier quelle case de l'inventaire est pris
+	if (!m)
+	{
+		//TODO mettre du dialogue
+		return ;
+	}
+	for (int i = 0; i < INV_SIZE; i++)
+	{
+		if (!this->_inventory[i])
+		{
+			this->_inventory[i] = m;
+			return ;
+		}
+	}
 }
 
 void Character::unequip(int idx)
 {
-	
+	if (idx < 0 || idx >= INV_SIZE || !this->_inventory[idx])
+	{
+		//TODO mettre un message
+		return ;
+	}
+	//TODO mettre au sol avant de mettre a NULL
+	this->_inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	
+	if (idx > 0 && idx < INV_SIZE && this->_inventory[idx])
+		this->_inventory[idx]->use(target);
+	else
+		return ;
+		//TODO message d'erreur
 }
