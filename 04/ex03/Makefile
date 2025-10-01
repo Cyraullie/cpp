@@ -6,11 +6,11 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/11 17:17:10 by cgoldens          #+#    #+#              #
-#    Updated: 2025/09/30 14:50:08 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/10/01 15:11:47 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Animal
+NAME = Materia
 
 SRCDIR = ./
 INCDIR = ./

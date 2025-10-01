@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:55:09 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/30 14:58:20 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/01 15:33:24 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "AMateria.hpp"
 # include <string>
+# include <iostream>
 
 class IMateriaSource
 {

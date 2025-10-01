@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:42:27 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/01 13:57:28 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/01 15:38:18 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,23 +66,24 @@ std::string const & Character::getName() const
 	return (this->_name);
 }
 
-//TODO faire les fonctions en dessous
 void Character::equip(AMateria* m)
 {
-	//TODO verifier quelle case de l'inventaire est pris
 	if (!m)
 	{
-		//TODO mettre du dialogue
+		std::cout << "invalid materia ! " << std::endl;
 		return ;
 	}
-	for (int i = 0; i < INV_SIZE; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
+			std::cout << m->getType() << " equiped in place " << i << " of inventory" << std::endl;
 			return ;
 		}
 	}
+	std::cout << "No place left in inventory !" << std::endl;
+	delete m;
 }
 
 void Character::unequip(int idx)
@@ -101,6 +102,5 @@ void Character::use(int idx, ICharacter& target)
 	if (idx > 0 && idx < INV_SIZE && this->_inventory[idx])
 		this->_inventory[idx]->use(target);
 	else
-		return ;
-		//TODO message d'erreur
+		std::cout << "No Materia at this spot" << std::endl;
 }
