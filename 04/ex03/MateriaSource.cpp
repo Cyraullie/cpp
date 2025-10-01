@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:47:46 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/01 15:44:34 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/01 15:52:28 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 MateriaSource::MateriaSource(): IMateriaSource(), _materias()
 {
-	std::cout << "Default MateriaSource constructor called" << std::endl;
+	std::cout << GREEN << "Default MateriaSource constructor called" << RESET << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& cpy): IMateriaSource(), _materias()

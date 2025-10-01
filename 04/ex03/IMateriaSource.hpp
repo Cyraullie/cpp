@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 14:55:09 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/01 15:33:24 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/01 15:51:54 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define IMATERIASOURCE_HPP
 
 # include "AMateria.hpp"
+# include "colors.hpp"
 # include <string>
 # include <iostream>
 
