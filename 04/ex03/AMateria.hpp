@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:01:52 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/01 15:11:05 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/02 11:40:41 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "ICharacter.hpp"
 # include <string>
 # include <iostream>
+# include "colors.hpp"
 
 class AMateria
 {

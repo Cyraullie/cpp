@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:47:46 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/01 15:52:28 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/02 11:52:26 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ MateriaSource::MateriaSource(const MateriaSource& cpy): IMateriaSource(), _mater
 	{
 		this->_materias[i] = cpy._materias[i]->clone();
 	}
-	std::cout << "Copy MateriaSource constructor called" << std::endl;
+	std::cout << LIGHT_GREEN << "Copy MateriaSource constructor called" << RESET << std::endl;
 }
 
 MateriaSource::~MateriaSource()
@@ -32,7 +32,7 @@ MateriaSource::~MateriaSource()
 	{
 		if (this->_materias[i])
 		{
-			std::cout << "delete materias" << std::endl;
+			std::cout << RED << "delete materias" << RESET << std::endl;
 			delete(this->_materias[i]);
 			this->_materias[i] = NULL;
 		}
@@ -48,17 +48,17 @@ MateriaSource &MateriaSource::operator=(const MateriaSource& src)
 			delete(this->_materias[i]);
 			this->_materias[i] = NULL;
 		}
-		std::cout << "MateriaSource assignment operator called" << std::endl;
+		std::cout << LIGHT_GREEN << "MateriaSource assignment operator called" << RESET << std::endl;
 		this->_materias[i] = src._materias[i]->clone();
 	}
 	return (*this);
 }
-//TODO mettre du dialog
+
 void MateriaSource::learnMateria(AMateria* materia)
 {
 	if (!materia)
 	{
-		std::cout << "invalid materia ! " << std::endl;
+		std::cout << LIGHT_RED << "invalid materia ! " << RESET << std::endl;
 		return ;
 	}
 	for (int i = 0; i < MAX_MATERIAS; i++)
@@ -78,10 +78,10 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	{
 		if (this->_materias[i]->getType() == type)
 		{
-			std::cout << this->_materias[i]->getType() << " created !" << std::endl;
+			std::cout << LIGHT_BLUE << this->_materias[i]->getType() << " created !" << RESET << std::endl;
 			return (this->_materias[i]->clone());
 		}
 	}
-	std::cout << "Materia with the type " << type << "doesn't exist !" << std::endl;
+	std::cout << LIGHT_RED << "Materia with the type " << type << "doesn't exist !" << RESET << std::endl;
 	return (NULL);
 }
