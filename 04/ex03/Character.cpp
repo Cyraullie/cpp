@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:42:27 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/02 14:28:58 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/02 15:10:50 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ Character::~Character()
 	std::cout << RED << "Destructor Character called" << RESET << std::endl;
 	for (int i = 0; i < INV_SIZE; i++)
 	{
-		std::cout << "delete inventory " << i << std::endl;
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	}
