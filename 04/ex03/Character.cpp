@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:42:27 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/02 11:51:42 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/02 12:01:06 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void Character::equip(AMateria* m)
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
-			std::cout << CYAN << m->getType() << " equiped in place " << i << " of inventory" << RESET << std::endl;
+			std::cout << CYAN << this->_inventory[i]->getType() << " equiped in place " << i << " of inventory" << RESET << std::endl;
 			return ;
 		}
 	}
@@ -104,7 +104,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx > 0 && idx < INV_SIZE && this->_inventory[idx])
+	if (idx >= 0 && idx < INV_SIZE && this->_inventory[idx])
 		this->_inventory[idx]->use(target);
 	else
 		std::cout << LIGHT_RED << "No Materia at this spot" << RESET << std::endl;
