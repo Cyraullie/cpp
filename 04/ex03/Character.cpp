@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:42:27 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/02 12:01:06 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/02 12:02:44 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void Character::equip(AMateria* m)
 	}
 	for (int i = 0; i < 4; i++)
 	{
-		std::cout << "TEST " << i << std::endl;
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
