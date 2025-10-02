@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:42:27 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/02 12:02:44 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/02 14:28:58 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Character::Character(const Character& cpy): ICharacter(), _name(cpy._name), _inv
 	for (int i = 0; i < INV_SIZE; i++)
 	{
 		if (cpy._inventory[i])
-			this->_inventory[i] = cpy._inventory[i];
+			this->_inventory[i] = cpy._inventory[i]->clone();
 	}
 }
 
@@ -36,12 +36,9 @@ Character::~Character()
 	std::cout << RED << "Destructor Character called" << RESET << std::endl;
 	for (int i = 0; i < INV_SIZE; i++)
 	{
+		std::cout << "delete inventory " << i << std::endl;
 		if (this->_inventory[i])
-		{
-			std::cout << RED << "delete inventories" << RESET << std::endl;
-			delete(this->_inventory[i]);
-			this->_inventory[i] = NULL;
-		}
+			delete this->_inventory[i];
 	}
 }
 
@@ -97,6 +94,7 @@ void Character::unequip(int idx)
 		std::cout << LIGHT_RED << "No Materia to unequip at this spot" << RESET << std::endl;
 		return ;
 	}
+	std::cout << CYAN << this->_inventory[idx]->getType() << " unequiped in place " << idx << " of inventory" << RESET << std::endl;
 	//TODO mettre au sol avant de mettre a NULL
 	this->_inventory[idx] = NULL;
 }

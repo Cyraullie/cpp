@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 11:47:46 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/02 11:52:26 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/02 13:42:11 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void MateriaSource::learnMateria(AMateria* materia)
 		if (!this->_materias[i])
 		{
 			this->_materias[i] = materia->clone();
-			std::cout << materia->getType() << " stock in spot of MateriaSource number " << i << std::endl;
+			std::cout << CYAN << materia->getType() << " stock in spot of MateriaSource number " << i << RESET << std::endl;
 			return ;
 		}
 	}
