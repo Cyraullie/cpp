@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:10:04 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/03 11:54:57 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/03 15:59:31 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ Cat::~Cat()
 
 Cat &Cat::operator=(const Cat &rhs)
 {
+	//TODO faire une vrai deep copy (delete before add)
+	//TODO copy that in ex02
 	if (this->_type != rhs._type)
 	{
 		this->_type = rhs._type;
