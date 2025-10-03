@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:21:22 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/25 15:02:20 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/03 11:55:05 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Dog: public Animal
 		~Dog();
 
 		void	makeSound() const;
-		Brain	&getBrain();
+		Brain	&getBrain() const;
 };
 
 #endif

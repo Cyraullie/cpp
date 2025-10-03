@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:10:04 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/25 15:29:14 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/03 11:54:57 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	Cat::makeSound() const
 	std::cout << "Meow Meow" << std::endl;
 }
 
-Brain &Cat::getBrain()
+Brain &Cat::getBrain() const
 {
 	return (*this->_brain);
 }

@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:10:28 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/09/25 15:28:42 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/03 11:55:13 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	Dog::makeSound() const
 	std::cout << "Ouaf Ouaf" << std::endl;
 }
 
-Brain &Dog::getBrain()
+Brain &Dog::getBrain() const
 {
 	return (*this->_brain);
 }
