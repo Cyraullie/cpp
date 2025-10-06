@@ -64,13 +64,13 @@ ${classname}::${classname}() : _name("")
 // Data constructor
 ${classname}::${classname}(std::string name) : _name(name)
 {
-	std::cout << LIGHT_GREEN << " ${classname} constructor called for " << ITALIC << name << RESET << std::endl;
+	std::cout << LIGHT_GREEN << "${classname} constructor called for " << ITALIC << name << RESET << std::endl;
 }
 
 // Copy constructor
 ${classname}::${classname}(const ${classname}& cpy) : _name(cpy._name)
 {
-	std::cout << LIGHT_GREEN << " ${classname} copy constructor called for " << ITALIC << cpy._name << RESET << std::endl;
+	std::cout << LIGHT_GREEN << "${classname} copy constructor called for " << ITALIC << cpy._name << RESET << std::endl;
 }
 
 // Copy assignment
@@ -85,7 +85,7 @@ ${classname}& ${classname}::operator=(const ${classname}& src)
 // Destructor
 ${classname}::~${classname}()
 {
-	std::cout << RED << " ${classname} destructor called for " << ITALIC << this->_name << RESET << std::endl;
+	std::cout << RED << "${classname} destructor called for " << ITALIC << this->_name << RESET << std::endl;
 };
 
 // Example methods
