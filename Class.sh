@@ -23,12 +23,13 @@ fi
 
 # Écriture du header
 cat > "$header" <<EOF
-#pragma once
-#ifndef ${guard}
-#define ${guard}
 
-#include <string>
-#include <iostream>
+#ifndef ${guard}
+# define ${guard}
+
+# include <string>
+# include <iostream>
+# include "colors.hpp"
 
 class ${classname} {
 	private:
@@ -57,26 +58,26 @@ cat > "$source" <<EOF
 // Default constructor
 ${classname}::${classname}() : _name("")
 {
-	std::cout << "Default ${classname} constructor called" << std::endl;
+	std::cout << GREEN << "Default ${classname} constructor called" << RESET << std::endl;
 }
 
 // Data constructor
 ${classname}::${classname}(std::string name) : _name(name)
 {
-	std::cout << " ${classname} constructor called for " << name << std::endl;
+	std::cout << LIGHT_GREEN << " ${classname} constructor called for " << ITALIC << name << RESET << std::endl;
 }
 
 // Copy constructor
 ${classname}::${classname}(const ${classname}& cpy) : _name(cpy._name)
 {
-
+	std::cout << LIGHT_GREEN << " ${classname} copy constructor called for " << ITALIC << cpy._name << RESET << std::endl;
 }
 
 // Copy assignment
 ${classname}& ${classname}::operator=(const ${classname}& src)
 {
 	if (this != &src) {
-		_name = src._name;
+		this->_name = src._name;
 	}
 	return *this;
 }
@@ -84,18 +85,18 @@ ${classname}& ${classname}::operator=(const ${classname}& src)
 // Destructor
 ${classname}::~${classname}()
 {
-	std::cout << " ${classname} destructor called for " << this->_name << std::endl;
+	std::cout << RED << " ${classname} destructor called for " << ITALIC << this->_name << RESET << std::endl;
 };
 
 // Example methods
 void ${classname}::setName(const std::string& name) 
 {
-	_name = name;
+	this->_name = name;
 }
 
 const std::string& ${classname}::getName() const 
 {
-	return _name;
+	return this->_name;
 }
 EOF
 
