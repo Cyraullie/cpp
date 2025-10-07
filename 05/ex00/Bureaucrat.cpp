@@ -1,15 +1,18 @@
 #include "Bureaucrat.hpp"
 
 // Default constructor
-Bureaucrat::Bureaucrat() : _name(""), _grade(150)
+Bureaucrat::Bureaucrat() : _name("Patrick"), _grade(150)
 {
 	std::cout << GREEN << "Default Bureaucrat constructor called" << RESET << std::endl;
 }
 
 // Data constructor
-Bureaucrat::Bureaucrat(int grade, std::string const name) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(int grade, std::string const name) : _name(name)
 {
 	std::cout << LIGHT_GREEN << "Bureaucrat constructor called for " << ITALIC << name << RESET << std::endl;
+	checkGrade(grade);
+	this->_grade = grade;
+
 }
 
 // Copy constructor
@@ -45,18 +48,24 @@ const int& Bureaucrat::getGrade() const
 
 void Bureaucrat::downgrade()
 {
-	if (this->_grade < LOWERGRADE)
-		this->_grade++;
-	else
-		std::cout << YELLOW << this->_name << " is already in higher grade !" << RESET << std::endl;
+	checkGrade(this->_grade + 1);
+	std::cout << LIGHT_YELLOW << "downgrade " << this->_name << RESET << std::endl;
+	this->_grade++;
 }
 
 void Bureaucrat::upgrade()
 {
-	if (this->_grade > HIGHERGRADE)
-		this->_grade--;
-	else
-		std::cout << YELLOW << this->_name << " is already in higher grade !" << RESET << std::endl;
+	checkGrade(this->_grade - 1);
+	std::cout << LIGHT_YELLOW << "upgrade " << this->_name << RESET << std::endl;
+	this->_grade--;
+}
+
+void Bureaucrat::checkGrade(int grade)
+{
+	if (grade > LOWERGRADE)
+		throw (Bureaucrat::GradeTooLowException());
+	else if (grade < HIGHERGRADE)
+		throw (Bureaucrat::GradeTooHighException());
 }
 
 std::ostream &operator<<(std::ostream &stream, const Bureaucrat &src)

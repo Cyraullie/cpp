@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:02:54 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/06 15:49:49 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:36:57 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Bureaucrat {
 		const int&			getGrade() const;
 		void				downgrade();
 		void				upgrade();
+		void				checkGrade(int grade);
 
 		class GradeTooHighException : public std::exception
 		{
