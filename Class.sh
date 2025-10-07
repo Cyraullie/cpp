@@ -23,7 +23,6 @@ fi
 
 # Écriture du header
 cat > "$header" <<EOF
-
 #ifndef ${guard}
 # define ${guard}
 

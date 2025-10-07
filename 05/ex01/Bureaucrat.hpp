@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:02:54 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/07 11:47:39 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:36:57 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class Bureaucrat {
 	private:
 		std::string const	_name;
 		int					_grade;
-		
-		void				checkGrade(int grade);
 
 	public:
 		Bureaucrat();										// Default constructor
@@ -38,6 +36,7 @@ class Bureaucrat {
 		const int&			getGrade() const;
 		void				downgrade();
 		void				upgrade();
+		void				checkGrade(int grade);
 
 		class GradeTooHighException : public std::exception
 		{
