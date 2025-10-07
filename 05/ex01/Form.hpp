@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:43:11 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/07 11:46:50 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:50:08 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,19 @@ class Form {
 		~Form();									// Destructor
 
 		// --- Example methods ---
-		void setName(const std::string& name);
 		const std::string& getName() const;
 
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual char const* what() const throw();
+		};
+		
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual char const* what() const throw();
+		};
 };
 
 #endif // FORM_HPP

@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:43:08 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/07 11:43:09 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:49:59 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,18 @@ Form::~Form()
 	std::cout << RED << "Form destructor called for " << ITALIC << this->_name << RESET << std::endl;
 };
 
-// Example methods
-void Form::setName(const std::string& name) 
-{
-	this->_name = name;
-}
 
 const std::string& Form::getName() const 
 {
 	return this->_name;
+}
+
+char const * Form::GradeTooHighException::what() const throw()
+{
+	return ("Grade too high");
+}
+
+char const * Form::GradeTooLowException::what() const throw()
+{
+    return ("Grade too low");
 }
