@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:43:11 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/07 11:50:08 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/08 14:48:02 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,16 @@ class Form {
 
 	public:
 		Form();										// Default constructor
-		Form(std::string name);						// Data constructor
-		Form(const Form& cpy);				// Copy constructor
-		Form& operator=(const Form& src);	// Copy assignment
+		Form(std::string name, int sign, int exec);	// Data constructor
+		Form(const Form& cpy);						// Copy constructor
+		Form& operator=(const Form& src);			// Copy assignment
 		~Form();									// Destructor
 
-		// --- Example methods ---
-		const std::string& getName() const;
+		const std::string&	getName() const;
+		const bool&			getIsSigned() const;
+		const int&			getGradeToSign() const;
+		const int&			getGradeToExec() const;
+		void				beSigned(const Bureaucrat & bureaucrat);
 
 		class GradeTooHighException : public std::exception
 		{
@@ -50,5 +53,7 @@ class Form {
 				virtual char const* what() const throw();
 		};
 };
+
+std::ostream &operator<<(std::ostream &stream, const Form& src);
 
 #endif // FORM_HPP

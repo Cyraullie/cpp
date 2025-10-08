@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:02:54 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/07 11:47:39 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/08 14:45:08 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 # include <string>
 # include <iostream>
 # include "colors.hpp"
+# include "Form.hpp"
 
 # define HIGHERGRADE 1
 # define LOWERGRADE 150
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -38,6 +41,7 @@ class Bureaucrat {
 		const int&			getGrade() const;
 		void				downgrade();
 		void				upgrade();
+		void				signForm(Form & form) const;
 
 		class GradeTooHighException : public std::exception
 		{

@@ -24,6 +24,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& cpy) : _name(cpy._name), _grade(cpy._gr
 // Copy assignment
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 {
+	std::cout << LIGHT_GREEN << "Bureaucrat assignment operator called" << RESET << std::endl;
 	if (this->_grade != src._grade) {
 		this->_grade = src._grade;
 	}
@@ -66,6 +67,19 @@ void Bureaucrat::checkGrade(int grade)
 		throw (Bureaucrat::GradeTooLowException());
 	else if (grade < HIGHERGRADE)
 		throw (Bureaucrat::GradeTooHighException());
+}
+
+
+void Bureaucrat::signForm(Form & form) const
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << LIGHT_RED << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << RESET << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &stream, const Bureaucrat &src)
