@@ -24,6 +24,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& cpy) : _name(cpy._name), _grade(cpy._gr
 // Copy assignment
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 {
+	std::cout << LIGHT_GREEN << "Bureaucrat assignment operator called" << RESET << std::endl;
 	if (this->_grade != src._grade) {
 		this->_grade = src._grade;
 	}

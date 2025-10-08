@@ -75,6 +75,7 @@ ${classname}::${classname}(const ${classname}& cpy) : _name(cpy._name)
 // Copy assignment
 ${classname}& ${classname}::operator=(const ${classname}& src)
 {
+	std::cout << LIGHT_GREEN << "${classname} assignment operator called" << RESET << std::endl;
 	if (this != &src) {
 		this->_name = src._name;
 	}
