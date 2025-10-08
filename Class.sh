@@ -30,7 +30,8 @@ cat > "$header" <<EOF
 # include <iostream>
 # include "colors.hpp"
 
-class ${classname} {
+class ${classname}
+{
 	private:
 		std::string _name;
 
