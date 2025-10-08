@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:43:08 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/08 14:55:34 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/08 15:16:26 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ Form::Form() : _name("Referandom"), _isSigned(0), _gradeToSign(100), _gradeToExe
 Form::Form(std::string name, int sign, int exec) : _name(name), _isSigned(0), _gradeToSign(sign), _gradeToExec(exec)
 {
 	std::cout << LIGHT_GREEN << "Form constructor called for " << ITALIC << name << RESET << std::endl;
+	checkGrade(sign);
+	checkGrade(exec);
 }
 
 // Copy constructor
