@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:55:29 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/07 11:29:48 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/08 14:03:14 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int main()
 	{
 		std::cout << BOLD << "Declare a valid grade:" << RESET << std::endl;
 		Bureaucrat yvan(1, "Yvan");
+
+		Bureaucrat test = yvan;
+		std::cout << GREEN << test << RESET << std::endl;
 		std::cout << GREEN << yvan << RESET << std::endl;
 	}
 	catch(std:: exception &e)
