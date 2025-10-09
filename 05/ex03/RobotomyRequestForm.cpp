@@ -1,0 +1,52 @@
+#include "RobotomyRequestForm.hpp"
+
+// Default constructor
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", this->_grade_to_sign, this->_grade_to_exec), _target("Robobobotomy")
+{
+	std::cout << GREEN << "Default RobotomyRequestForm constructor called" << RESET << std::endl;
+}
+
+// Data constructor
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", this->_grade_to_sign, this->_grade_to_exec), _target(target)
+{
+	std::cout << LIGHT_GREEN << "RobotomyRequestForm constructor called for " << ITALIC << target << RESET << std::endl;
+}
+
+// Copy constructor
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& cpy) : AForm(cpy.getName(), cpy.getGradeToSign(), cpy.getGradeToExec()), _target(cpy.getTarget())
+{
+	std::cout << LIGHT_GREEN << "RobotomyRequestForm copy constructor called for " << ITALIC << cpy.getTarget() << RESET << std::endl;
+}
+
+// Copy assignment
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& src)
+{
+	std::cout << LIGHT_GREEN << "RobotomyRequestForm assignment operator called" << RESET << std::endl;
+	if (this != &src) {
+		this->_target = src.getTarget();
+	}
+	return *this;
+}
+
+// Destructor
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+	std::cout << RED << "RobotomyRequestForm destructor called for " << ITALIC << this->getTarget() << RESET << std::endl;
+};
+
+const std::string& RobotomyRequestForm::getTarget() const 
+{
+	return this->_target;
+}
+
+void RobotomyRequestForm::doExecute() const
+{
+	srand(time(0));
+
+	int chance = std::rand() % 2;
+	std::cout << ITALIC << "BRRRrrrBrrRRrrRRBrrrRRRrrRRBrrrRRrrRRRBrrrRRRRrrRR!" << RESET << std::endl;
+	if (chance)
+		std::cout << LIGHT_BLUE << this->_target << " has been robotomized successfully!" << RESET << std::endl;
+	else
+		std::cout << LIGHT_BLUE << "The robotomy request on " << this->_target << " has failed!" << RESET << std::endl;
+}
