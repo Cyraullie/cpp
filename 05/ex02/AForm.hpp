@@ -26,10 +26,10 @@ class AForm {
 		static const unsigned int _grade_to_exec = 50;
 
 	private:
-		std::string const	_name;
+		const std::string	_name;
 		bool				_isSigned;
-		int const			_gradeToSign;
-		int const			_gradeToExec;
+		const int			_gradeToSign;
+		const int			_gradeToExec;
 		void				checkGrade(int grade);
 
 	public:
