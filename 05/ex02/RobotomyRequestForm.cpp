@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 
 // Default constructor
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", this->_grade_to_sign, this->_grade_to_exec), _target("")
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", this->_grade_to_sign, this->_grade_to_exec), _target("Robobobotomy")
 {
 	std::cout << GREEN << "Default RobotomyRequestForm constructor called" << RESET << std::endl;
 }
@@ -37,4 +37,16 @@ RobotomyRequestForm::~RobotomyRequestForm()
 const std::string& RobotomyRequestForm::getTarget() const 
 {
 	return this->_target;
+}
+
+void RobotomyRequestForm::doExecute() const
+{
+	srand(time(0));
+
+	int chance = std::rand() % 2;
+	std::cout << ITALIC << "BRRRrrrBrrRRrrRRBrrrRRRrrRRBrrrRRrrRRRBrrrRRRRrrRR!" << RESET << std::endl;
+	if (chance)
+		std::cout << LIGHT_BLUE << this->_target << " has been robotomized successfully!" << RESET << std::endl;
+	else
+		std::cout << LIGHT_BLUE << "The robotomy request on " << this->_target << " has failed!" << RESET << std::endl;
 }

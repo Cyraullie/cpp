@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:55:29 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/09 11:09:57 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/09 13:20:59 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int main()
 		Bureaucrat clitorin(100, "Clitorin");
 		ShrubberyCreationForm shrub("My_penthouse");
 		clitorin.signForm(shrub);
-		clitorin.excecuteForm(shrub);
+		clitorin.executeForm(shrub);
 	}
 	catch(const std::exception& e)
 	{
@@ -95,7 +95,7 @@ int main()
 		Bureaucrat clitorin(40, "Clitorin");
 		RobotomyRequestForm robotomy("Big_brain");
 		clitorin.signForm(robotomy);
-		clitorin.excecuteForm(robotomy);
+		clitorin.executeForm(robotomy);
 	}
 	catch(const std::exception& e)
 	{
@@ -107,9 +107,9 @@ int main()
 	{
 		std::cout << BOLD << "*** Test with grade to low for execute ***" << RESET << std::endl;
 		Bureaucrat clitorin(25, "Clitorin");
-		PresidentPardonForm oupsi("Oupsii");
+		PresidentialPardonForm oupsi("Oupsii");
 		clitorin.signForm(oupsi);
-		clitorin.excecuteForm(oupsi);
+		clitorin.executeForm(oupsi);
 	}
 
 	catch(const std::exception& e) // Should work
@@ -120,9 +120,12 @@ int main()
 	try
 	{
 		Bureaucrat clitorin(5, "Clitorin");
-		PresidentPardonForm oupsi("Oupsii");
+		PresidentialPardonForm oupsi("Oupsii");
 		clitorin.signForm(oupsi);
-		clitorin.excecuteForm(oupsi);
+		clitorin.downgrade();
+		clitorin.executeForm(oupsi);
+		clitorin.upgrade();
+		clitorin.executeForm(oupsi);
 	}
 
 	catch(const std::exception& e)

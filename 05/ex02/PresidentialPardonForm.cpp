@@ -38,3 +38,8 @@ const std::string& PresidentialPardonForm::getTarget() const
 {
 	return this->_target;
 }
+
+void PresidentialPardonForm::doExecute() const
+{
+	std::cout << LIGHT_BLUE << this->_target << " has been pardoned by Zaphod Beeblebrox!" << RESET << std::endl;
+}

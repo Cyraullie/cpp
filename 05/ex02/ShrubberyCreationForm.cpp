@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 // Default constructor
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", this->_grade_to_sign, this->_grade_to_exec), _target("")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", this->_grade_to_sign, this->_grade_to_exec), _target("Shrubbing")
 {
 	std::cout << GREEN << "Default ShrubberyCreationForm constructor called" << RESET << std::endl;
 }
@@ -42,9 +42,9 @@ const std::string& ShrubberyCreationForm::getTarget() const
 
 void ShrubberyCreationForm::doExecute() const
 {
-	std::string filename(this->getTarget() + "_shrubbery");
+	std::string filename(this->_target + "_shrubbery");
 	std::ifstream treefile(ARTFILENAME);
-	std::ofstream shrub(filename);
+	std::ofstream shrub(filename.c_str());
 	std::string buf;
 
 	while (std::getline(treefile, buf))
