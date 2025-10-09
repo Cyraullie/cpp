@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:43:11 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/08 14:48:02 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/09 11:13:14 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 class Bureaucrat;
 
 class Form {
+	protected:
+		static const unsigned int _grade_to_sign = 100;
+		static const unsigned int _grade_to_exec = 50;
+		
 	private:
 		std::string const	_name;
 		bool				_isSigned;

@@ -2,14 +2,17 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
+# include <fstream>
 
-# define GRADETOSIGN 145
-# define GRADETOEXEC 137
+# define ARTFILENAME "Tree_ASCII_Art"
 
 class ShrubberyCreationForm : public AForm
 {
 	private:
 		std::string _target;
+
+		static const unsigned int _grade_to_sign = 145;
+		static const unsigned int _grade_to_exec = 137;
 
 	public:
 		ShrubberyCreationForm();										// Default constructor

@@ -1,13 +1,13 @@
 #include "RobotomyRequestForm.hpp"
 
 // Default constructor
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", GRADETOSIGN, GRADETOEXEC), _target("")
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", this->_grade_to_sign, this->_grade_to_exec), _target("")
 {
 	std::cout << GREEN << "Default RobotomyRequestForm constructor called" << RESET << std::endl;
 }
 
 // Data constructor
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", GRADETOSIGN, GRADETOEXEC), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", this->_grade_to_sign, this->_grade_to_exec), _target(target)
 {
 	std::cout << LIGHT_GREEN << "RobotomyRequestForm constructor called for " << ITALIC << target << RESET << std::endl;
 }

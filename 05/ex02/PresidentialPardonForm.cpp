@@ -1,13 +1,13 @@
 #include "PresidentialPardonForm.hpp"
 
 // Default constructor
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", GRADETOSIGN, GRADETOEXEC), _target("")
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", this->_grade_to_sign, this->_grade_to_exec), _target("")
 {
 	std::cout << GREEN << "Default PresidentialPardonForm constructor called" << RESET << std::endl;
 }
 
 // Data constructor
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", GRADETOSIGN, GRADETOEXEC), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", this->_grade_to_sign, this->_grade_to_exec), _target(target)
 {
 	std::cout << LIGHT_GREEN << "PresidentialPardonForm constructor called for " << ITALIC << target << RESET << std::endl;
 }

@@ -13,7 +13,7 @@
 #include "AForm.hpp"
 
 // Default constructor
-AForm::AForm() : _name("Referandom"), _isSigned(0), _gradeToSign(100), _gradeToExec(50)
+AForm::AForm() : _name("Referandom"), _isSigned(0), _gradeToSign(this->_grade_to_sign), _gradeToExec(this->_grade_to_exec)
 {
 	std::cout << GREEN << "Default AForm constructor called" << RESET << std::endl;
 }
@@ -85,6 +85,15 @@ void AForm::beSigned(const Bureaucrat & bureaucrat)
 	throw (AForm::GradeTooLowException());
 }
 
+void AForm::execute(const Bureaucrat & executor) const
+{
+	if (!this->getIsSigned())
+		throw (AForm::NotSignedException());
+	if (executor.getGrade() <= this->getGradeToExec())
+		this->doExecute();
+	else
+		throw (AForm::GradeTooLowException());
+}
 
 
 void AForm::checkGrade(int grade)

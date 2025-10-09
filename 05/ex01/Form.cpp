@@ -6,14 +6,14 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 11:43:08 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/08 15:16:26 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/09 11:13:06 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 // Default constructor
-Form::Form() : _name("Referandom"), _isSigned(0), _gradeToSign(100), _gradeToExec(50)
+Form::Form() : _name("Referandom"), _isSigned(0), _gradeToSign(this->_grade_to_sign), _gradeToExec(this->_grade_to_exec)
 {
 	std::cout << GREEN << "Default Form constructor called" << RESET << std::endl;
 }

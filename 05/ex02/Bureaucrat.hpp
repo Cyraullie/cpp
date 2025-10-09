@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 14:02:54 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/08 15:11:06 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/09 11:58:11 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class Bureaucrat {
 		void				downgrade();
 		void				upgrade();
 		void				signForm(AForm & form) const;
-		void				executeForm(AForm const & form) const;
+		void				executeForm(AForm & form) const;
 
 		class GradeTooHighException : public std::exception
 		{

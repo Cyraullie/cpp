@@ -3,13 +3,13 @@
 
 # include "AForm.hpp"
 
-# define GRADETOSIGN 25
-# define GRADETOEXEC 5
-
 class PresidentialPardonForm : public AForm
 {
 	private:
 		std::string _target;
+
+		static const unsigned int _grade_to_sign = 25;
+		static const unsigned int _grade_to_exec = 5;
 
 	public:
 		PresidentialPardonForm();										// Default constructor
