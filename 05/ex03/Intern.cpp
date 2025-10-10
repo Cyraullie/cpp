@@ -1,46 +1,63 @@
 #include "Intern.hpp"
 
 // Default constructor
-Intern::Intern() : _name("")
+Intern::Intern()
 {
 	std::cout << GREEN << "Default Intern constructor called" << RESET << std::endl;
 }
 
-// Data constructor
-Intern::Intern(std::string name) : _name(name)
-{
-	std::cout << LIGHT_GREEN << "Intern constructor called for " << ITALIC << name << RESET << std::endl;
-}
-
 // Copy constructor
-Intern::Intern(const Intern& cpy) : _name(cpy._name)
+Intern::Intern(const Intern& cpy)
 {
-	std::cout << LIGHT_GREEN << "Intern copy constructor called for " << ITALIC << cpy._name << RESET << std::endl;
-}
-
-// Copy assignment
-Intern& Intern::operator=(const Intern& src)
-{
-	std::cout << LIGHT_GREEN << "Intern assignment operator called" << RESET << std::endl;
-	if (this != &src) {
-		this->_name = src._name;
-	}
-	return *this;
+	(void)cpy;
+	std::cout << LIGHT_GREEN << "Intern copy constructor called " << RESET << std::endl;
 }
 
 // Destructor
 Intern::~Intern()
 {
-	std::cout << RED << "Intern destructor called for " << ITALIC << this->_name << RESET << std::endl;
+	std::cout << RED << "Intern destructor called for " << RESET << std::endl;
 };
 
-// Example methods
-void Intern::setName(const std::string& name) 
+// Copy assignment
+Intern& Intern::operator=(const Intern& src)
 {
-	this->_name = name;
+	(void)src;
+	std::cout << LIGHT_GREEN << "Intern assignment operator called" << RESET << std::endl;
+	return *this;
 }
 
-const std::string& Intern::getName() const 
+AForm *Intern::createShrubbery(std::string const & target)
 {
-	return this->_name;
+	return (new ShrubberyCreationForm(target));
+}
+
+AForm *Intern::createRobotomy(std::string const & target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+AForm *Intern::createPresidential(std::string const & target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
+AForm *Intern::makeForm(std::string const & name, std::string const & target)
+{
+	std::string	tab[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	AForm		*(Intern::*form[3])(std::string const &) = {&Intern::createShrubbery , &Intern::createRobotomy, &Intern::createPresidential};
+	for (int i = 0; i < 3; i++)
+	{
+		if (name == tab[i])
+		{
+			std::cout << LIGHT_BLUE << "Intern creates " << name << std::endl;
+			return ((this->*form[i])(target));
+		}
+	}
+	throw Intern::InvalidFormException();
+}
+
+const char *Intern::InvalidFormException::what() const throw()
+{
+	return ("Invalid form name!");
 }

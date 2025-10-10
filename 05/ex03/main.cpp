@@ -6,15 +6,15 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:55:29 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/09 13:20:59 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/10 14:41:46 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -122,12 +122,28 @@ int main()
 		Bureaucrat clitorin(5, "Clitorin");
 		PresidentialPardonForm oupsi("Oupsii");
 		clitorin.signForm(oupsi);
-		clitorin.downgrade();
-		clitorin.executeForm(oupsi);
-		clitorin.upgrade();
 		clitorin.executeForm(oupsi);
 	}
 
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << BOLD << "---------- INTERN TEST ----------" << RESET << std::endl;
+
+	try
+	{
+		AForm *form = NULL;
+		Intern slave;
+		Bureaucrat flibusse(1, "Flibusse");
+
+		form = slave.makeForm("shrubbery creation", "pipou");
+		flibusse.signForm(*form);
+		flibusse.executeForm(*form);
+
+		delete form;
+	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';

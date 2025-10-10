@@ -39,8 +39,9 @@ class ${classname}
 		${classname}();										// Default constructor
 		${classname}(std::string name);						// Data constructor
 		${classname}(const ${classname}& cpy);				// Copy constructor
-		${classname}& operator=(const ${classname}& src);	// Copy assignment
 		~${classname}();									// Destructor
+
+		${classname}& operator=(const ${classname}& src);	// Copy assignment
 
 		// --- Example methods ---
 		void setName(const std::string& name);
@@ -73,6 +74,12 @@ ${classname}::${classname}(const ${classname}& cpy) : _name(cpy._name)
 	std::cout << LIGHT_GREEN << "${classname} copy constructor called for " << ITALIC << cpy._name << RESET << std::endl;
 }
 
+// Destructor
+${classname}::~${classname}()
+{
+	std::cout << RED << "${classname} destructor called for " << ITALIC << this->_name << RESET << std::endl;
+};
+
 // Copy assignment
 ${classname}& ${classname}::operator=(const ${classname}& src)
 {
@@ -82,12 +89,6 @@ ${classname}& ${classname}::operator=(const ${classname}& src)
 	}
 	return *this;
 }
-
-// Destructor
-${classname}::~${classname}()
-{
-	std::cout << RED << "${classname} destructor called for " << ITALIC << this->_name << RESET << std::endl;
-};
 
 // Example methods
 void ${classname}::setName(const std::string& name) 

@@ -4,23 +4,34 @@
 # include <string>
 # include <iostream>
 # include "colors.hpp"
+# include "AForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
+
+class AForm;
 
 class Intern
 {
 	private:
-		std::string _name;
+		AForm *createShrubbery(std::string const & target);
+		AForm *createRobotomy(std::string const & target);
+		AForm *createPresidential(std::string const & target);
 
 	public:
 		Intern();										// Default constructor
-		Intern(std::string name);						// Data constructor
 		Intern(const Intern& cpy);				// Copy constructor
-		Intern& operator=(const Intern& src);	// Copy assignment
 		~Intern();									// Destructor
 
-		// --- Example methods ---
-		void setName(const std::string& name);
-		const std::string& getName() const;
+		Intern& operator=(const Intern& src);	// Copy assignment
 
+		AForm *makeForm(std::string const & name, std::string const & target);
+
+		class InvalidFormException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 };
 
 #endif // INTERN_HPP

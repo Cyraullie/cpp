@@ -37,7 +37,7 @@ class AForm {
 		AForm(std::string name, int sign, int exec);	// Data constructor
 		AForm(const AForm& cpy);						// Copy constructor
 		AForm& operator=(const AForm& src);			// Copy assignment
-		~AForm();									// Destructor
+		virtual ~AForm();									// Destructor
 
 		const std::string&	getName() const;
 		const bool&			getIsSigned() const;
