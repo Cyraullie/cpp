@@ -44,17 +44,29 @@ AForm *Intern::createPresidential(std::string const & target)
 
 AForm *Intern::makeForm(std::string const & name, std::string const & target)
 {
-	std::string	tab[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-	AForm		*(Intern::*form[3])(std::string const &) = {&Intern::createShrubbery , &Intern::createRobotomy, &Intern::createPresidential};
-	for (int i = 0; i < 3; i++)
+int	i = 0;
+	std::string	names[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+
+	while (i < 4)
 	{
-		if (name == tab[i])
-		{
-			std::cout << LIGHT_BLUE << "Intern creates " << name << std::endl;
-			return ((this->*form[i])(target));
-		}
+		if (name == names[i])
+			break ;
+		i++;
 	}
-	throw Intern::InvalidFormException();
+	switch (i)
+	{
+		case 0:
+			std::cout << "Intern creates " << names[i] << std::endl;
+			return new ShrubberyCreationForm(target);
+		case 1:
+			std::cout << "Intern creates " << names[i] << std::endl;
+			return new RobotomyRequestForm(target);
+		case 2:
+			std::cout << "Intern creates " << names[i] << std::endl;
+			return new PresidentialPardonForm(target);
+		default:
+			throw (InvalidFormException());
+	}
 }
 
 const char *Intern::InvalidFormException::what() const throw()

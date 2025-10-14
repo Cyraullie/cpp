@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:55:29 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/10 14:41:46 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/14 13:49:30 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ int main()
 		Bureaucrat flibusse(1, "Flibusse");
 
 		form = slave.makeForm("shrubbery creation", "pipou");
+		std::cout << form->getName() << std::endl;
 		flibusse.signForm(*form);
 		flibusse.executeForm(*form);
 
@@ -151,3 +152,4 @@ int main()
 
 	return (0);
 }
+
