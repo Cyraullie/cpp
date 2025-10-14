@@ -36,6 +36,7 @@ class ${classname}
 		std::string _name;
 
 	public:
+		// *** CANONICAL METHODS***
 		${classname}();										// Default constructor
 		${classname}(std::string name);						// Data constructor
 		${classname}(const ${classname}& cpy);				// Copy constructor
@@ -43,8 +44,10 @@ class ${classname}
 
 		${classname}& operator=(const ${classname}& src);	// Copy assignment
 
-		// --- Example methods ---
+		// *** SET METHODS***
 		void setName(const std::string& name);
+
+		// *** GET METHODS***
 		const std::string& getName() const;
 
 };
