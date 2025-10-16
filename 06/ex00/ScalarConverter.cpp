@@ -1,46 +1,73 @@
 #include "ScalarConverter.hpp"
 
 // Default constructor
-ScalarConverter::ScalarConverter() : _name("")
+ScalarConverter::ScalarConverter()
 {
 	std::cout << GREEN << "Default ScalarConverter constructor called" << RESET << std::endl;
 }
 
-// Data constructor
-ScalarConverter::ScalarConverter(std::string name) : _name(name)
-{
-	std::cout << LIGHT_GREEN << "ScalarConverter constructor called for " << ITALIC << name << RESET << std::endl;
-}
-
 // Copy constructor
-ScalarConverter::ScalarConverter(const ScalarConverter& cpy) : _name(cpy._name)
+ScalarConverter::ScalarConverter(const ScalarConverter& cpy)
 {
-	std::cout << LIGHT_GREEN << "ScalarConverter copy constructor called for " << ITALIC << cpy._name << RESET << std::endl;
+	(void)cpy;
+	std::cout << LIGHT_GREEN << "ScalarConverter copy constructor called for " << RESET << std::endl;
 }
 
 // Destructor
 ScalarConverter::~ScalarConverter()
 {
-	std::cout << RED << "ScalarConverter destructor called for " << ITALIC << this->_name << RESET << std::endl;
+	std::cout << RED << "ScalarConverter destructor called for " << ITALIC << RESET << std::endl;
 };
 
 // Copy assignment
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src)
 {
 	std::cout << LIGHT_GREEN << "ScalarConverter assignment operator called" << RESET << std::endl;
-	if (this != &src) {
-		this->_name = src._name;
-	}
+	(void)src;
 	return *this;
 }
 
-// Example methods
-void ScalarConverter::setName(const std::string& name) 
+void ScalarConverter::convertDouble(std::string const &str)
 {
-	this->_name = name;
+
 }
 
-const std::string& ScalarConverter::getName() const 
+void ScalarConverter::convertFloat(std::string const &str)
 {
-	return this->_name;
+	//TODO if .0 add it 
+	//TODO add f at the end
+}
+
+void ScalarConverter::convertInt(std::string const &str)
+{
+
+}
+
+void ScalarConverter::convertChar(std::string const &str)
+{
+
+}
+
+void ScalarConverter::convert(std::string const &str)
+{
+
+	std::cout << "default : " << str << std::endl;
+
+	int i;
+	// float f;
+	// double d;
+	//TODO fonctionne uniquement avec les chiffres ?
+    std::stringstream strm(str);
+
+	// string -> integer
+	strm >> i;
+
+	// string -> float
+	// std::istringstream ( str ) >> f;
+
+	// // string -> double 
+	// std::istringstream ( str ) >> d;
+
+	std::cout << "string to int : " << i << std::endl;
+	std::cout << "string to float : " << std::atof(str.c_str()) << "f" << std::endl;
 }

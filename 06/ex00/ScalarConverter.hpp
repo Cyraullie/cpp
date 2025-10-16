@@ -4,24 +4,24 @@
 # include <string>
 # include <iostream>
 # include "colors.hpp"
+# include <stdlib.h>
+# include <sstream>
 
 class ScalarConverter
 {
 	private:
-		std::string _name;
-
-	public:
 		ScalarConverter();										// Default constructor
-		ScalarConverter(std::string name);						// Data constructor
 		ScalarConverter(const ScalarConverter& cpy);				// Copy constructor
 		~ScalarConverter();									// Destructor
 
 		ScalarConverter& operator=(const ScalarConverter& src);	// Copy assignment
+		static void convertDouble(std::string const &str);
+		static void convertFloat(std::string const &str);
+		static void convertInt(std::string const &str);
+		static void convertChar(std::string const &str);
 
-		// --- Example methods ---
+	public:
 		static void convert(std::string const &str);
-		void setName(const std::string& name);
-		const std::string& getName() const;
 
 };
 

@@ -50,6 +50,8 @@ class ${classname}
 		// *** GET METHODS***
 		const std::string& getName() const;
 
+		// *** OTHER METHODS***
+
 };
 
 #endif // ${guard}
