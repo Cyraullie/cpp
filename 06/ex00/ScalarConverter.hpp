@@ -15,10 +15,10 @@ class ScalarConverter
 		~ScalarConverter();									// Destructor
 
 		ScalarConverter& operator=(const ScalarConverter& src);	// Copy assignment
-		static void convertDouble(std::string const &str);
-		static void convertFloat(std::string const &str);
-		static void convertInt(std::string const &str);
-		static void convertChar(std::string const &str);
+		static void convertDouble();
+		static void convertFloat();
+		static void convertInt();
+		static void convertChar();
 
 	public:
 		static void convert(std::string const &str);

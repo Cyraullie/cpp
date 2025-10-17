@@ -27,33 +27,36 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src)
 	return *this;
 }
 
-void ScalarConverter::convertDouble(std::string const &str)
+void ScalarConverter::convertDouble()
 {
 
 }
 
-void ScalarConverter::convertFloat(std::string const &str)
+void ScalarConverter::convertFloat()
 {
 	//TODO if .0 add it 
 	//TODO add f at the end
 }
 
-void ScalarConverter::convertInt(std::string const &str)
+void ScalarConverter::convertInt()
 {
 
 }
 
-void ScalarConverter::convertChar(std::string const &str)
+void ScalarConverter::convertChar()
 {
 
 }
 
 void ScalarConverter::convert(std::string const &str)
 {
+	//TODO convert in double first and after do check
 
 	std::cout << "default : " << str << std::endl;
 
-	int i;
+	double res;
+	char i;
+	int x;
 	// float f;
 	// double d;
 	//TODO fonctionne uniquement avec les chiffres ?
@@ -61,13 +64,16 @@ void ScalarConverter::convert(std::string const &str)
 
 	// string -> integer
 	strm >> i;
-
+	res = (double)i;
+	x = (int)i;
 	// string -> float
 	// std::istringstream ( str ) >> f;
 
 	// // string -> double 
 	// std::istringstream ( str ) >> d;
 
-	std::cout << "string to int : " << i << std::endl;
-	std::cout << "string to float : " << std::atof(str.c_str()) << "f" << std::endl;
+	std::cout << "string to char : " << (char)i << std::endl;
+	std::cout << "string to int : " << x << std::endl;
+	std::cout << "string to float : " << (float)std::atof(str.c_str()) << "f" << std::endl;
+	std::cout << "string to double : " << res << std::endl;
 }
