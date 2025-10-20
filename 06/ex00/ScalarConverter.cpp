@@ -54,9 +54,15 @@ void ScalarConverter::convert(std::string const &str)
 
 	std::cout << "default : " << str << std::endl;
 
-	double res;
+	double d;
 	char i;
 	int x;
+	if (std::isdigit(str.c_str()[0]))
+	{
+		std::cout << "digit" << std::endl;
+		x = std::atoi(str.c_str());
+		std::cout << "string to int : " << x << std::endl;
+	}
 	// float f;
 	// double d;
 	//TODO fonctionne uniquement avec les chiffres ?
@@ -64,8 +70,7 @@ void ScalarConverter::convert(std::string const &str)
 
 	// string -> integer
 	strm >> i;
-	res = (double)i;
-	x = (int)i;
+	d = atof(str.c_str());
 	// string -> float
 	// std::istringstream ( str ) >> f;
 
@@ -73,7 +78,6 @@ void ScalarConverter::convert(std::string const &str)
 	// std::istringstream ( str ) >> d;
 
 	std::cout << "string to char : " << (char)i << std::endl;
-	std::cout << "string to int : " << x << std::endl;
 	std::cout << "string to float : " << (float)std::atof(str.c_str()) << "f" << std::endl;
-	std::cout << "string to double : " << res << std::endl;
+	std::cout << "string to double : " << std::setprecision(3) << d << std::endl;
 }

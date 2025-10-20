@@ -6,6 +6,8 @@
 # include "colors.hpp"
 # include <stdlib.h>
 # include <sstream>
+# include <cctype>
+# include <iomanip>
 
 class ScalarConverter
 {
