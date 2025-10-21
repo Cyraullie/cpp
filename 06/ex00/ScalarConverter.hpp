@@ -8,6 +8,7 @@
 # include <sstream>
 # include <cctype>
 # include <iomanip>
+# include <cmath>
 
 class ScalarConverter
 {
@@ -17,10 +18,14 @@ class ScalarConverter
 		~ScalarConverter();									// Destructor
 
 		ScalarConverter& operator=(const ScalarConverter& src);	// Copy assignment
-		static void convertDouble();
-		static void convertFloat();
-		static void convertInt();
-		static void convertChar();
+		static void convertChar(char c);
+		static void convertInt(int nbr);
+		static void convertFloat(float nbr);
+		static void convertDouble(double nbr);
+
+		static bool checkDigit(std::string s);
+		static bool checkDouble(std::string s);
+		static bool checkFloat(std::string s);
 
 	public:
 		static void convert(std::string const &str);

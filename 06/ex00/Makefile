@@ -6,11 +6,11 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/11 17:17:10 by cgoldens          #+#    #+#              #
-#    Updated: 2025/10/14 15:25:50 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/10/21 09:42:50 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scalar
+NAME = convert
 
 SRCDIR = ./
 INCDIR = ./
