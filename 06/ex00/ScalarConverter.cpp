@@ -104,8 +104,9 @@ bool ScalarConverter::checkDouble(std::string s)
 {
 	for (size_t i = 0; i < s.length(); i++)
 	{
-		std::cout << std::isdigit(s[i]) << std::endl;
-		if (!std::isdigit(s[i]) && s[i] != '.')
+		if (s[i] == '.')
+			i++;
+		if (!std::isdigit(s[i]))
 			return (0);
 	}
 	return (1);
@@ -115,7 +116,14 @@ bool ScalarConverter::checkFloat(std::string s)
 {
 	for (size_t i = 0; i < s.length(); i++)
 	{
-		std::cout << std::isdigit(s[i]) << std::endl;
+
+		std::cout << std::isdigit(s[i]) << " " << s[i] << std::endl;
+		if (s[i] == '.')
+			i++;
+		std::cout << std::isdigit(s[i]) << " " << s[i] << std::endl;
+		if(s[i] == 'f')
+			i++;
+		std::cout << std::isdigit(s[i]) << " " << s[i] << std::endl;
 		if (!std::isdigit(s[i]))
 			return (0);
 	}
@@ -141,13 +149,6 @@ void ScalarConverter::convert(std::string const &str)
 		return ;
 	}
 
-	//TEST
-	if (str.find('.') != std::string::npos) {
-		// s contains substr
-		std::cout << "find ." << std::endl;
-	}
-
-
 	if (str.length() == 1 && !std::isdigit(str[0]) && std::isprint(str[0]))
 	{
 		convertChar(str.c_str()[0]);
@@ -159,12 +160,12 @@ void ScalarConverter::convert(std::string const &str)
 		convertInt(nbr);
 		return ;
 	}
-	else if ((str.find('.') != std::string::npos) && (str.find('f') != std::string::npos) && checkDouble(str))
+	else if ((str.find('.') != std::string::npos) && (str.find('f') != std::string::npos) && checkFloat(str))
 	{
 		float f = std::atof(str.c_str());
 		convertFloat(f);
 	}
-	else if ((str.find('.') != std::string::npos) && checkFloat(str))
+	else if ((str.find('.') != std::string::npos) && checkDouble(str))
 	{
 		double d = std::atof(str.c_str());
 		convertDouble(d);
