@@ -6,11 +6,11 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/11 17:17:10 by cgoldens          #+#    #+#              #
-#    Updated: 2025/10/23 14:09:13 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/10/24 13:57:18 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Iter
+NAME = Array
 
 SRCDIR = ./
 INCDIR = ./
