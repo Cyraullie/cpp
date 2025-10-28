@@ -6,11 +6,11 @@
 #    By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/11 17:17:10 by cgoldens          #+#    #+#              #
-#    Updated: 2025/10/24 15:45:00 by cgoldens         ###   ########.fr        #
+#    Updated: 2025/10/27 13:47:15 by cgoldens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Array
+NAME = easyfind
 
 SRCDIR = ./
 INCDIR = ./
