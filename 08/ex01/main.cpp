@@ -11,6 +11,23 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
+/*
+int main()
+{
+	Span sp = Span(5);
+	
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+
+	sp.printMultiset();
+
+	std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
+	return 0;
+}*/
 
 int main(void)
 {
@@ -36,8 +53,8 @@ int main(void)
 	span.printMultiset();
 	try
 	{
-		std::cout << "longest span: " << span.longestSpan() << std::endl;
 		std::cout << "shortest span: " << span.shortestSpan() << std::endl;
+		std::cout << "longest span: " << span.longestSpan() << std::endl;
 	}
 	catch (const std::exception& e)
 	{

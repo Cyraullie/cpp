@@ -63,18 +63,31 @@ void Span::printMultiset() const
 {
 	std::cout << "multiset: ";
 	std::for_each(this->_multiset.begin(), this->_multiset.end(), printNum);
-	std::cout << std::endl << "size : " << this->_multiset.size() << std::endl << "size max : " << this->_N << std::endl;
 	std::cout << std::endl;
 }
 
 unsigned int Span::shortestSpan()
 {
-	//TODO do this
-	return (0);
+	int smallest;
+	std::multiset<int>::iterator it = this->_multiset.begin();
+	std::multiset<int>::iterator next_it = it;
+
+	if (this->_multiset.size() <= 1)
+		throw std::length_error(RED "Error, too few elements" RESET);
+	next_it++;
+	smallest = *next_it - *it;
+	while (next_it != this->_multiset.end())
+	{
+		smallest = std::min(smallest, *next_it - *it);
+		it++;
+		next_it++;
+	}
+	return (smallest);
 }
 
 unsigned int Span::longestSpan()
 {
-	//TODO do this
-	return (0);
+	if (this->_multiset.size() <= 1)
+		throw std::length_error(RED "Error, too few elements" RESET);
+	return (*this->_multiset.rbegin() - *this->_multiset.begin());
 }
