@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:45:35 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/29 15:22:29 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/29 15:54:24 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,18 @@ void Span::printMultiset() const
 {
 	std::cout << "multiset: ";
 	std::for_each(this->_multiset.begin(), this->_multiset.end(), printNum);
-	std::cout << std::endl << "size : " << this->_multiset.size() << std::endl;
+	std::cout << std::endl << "size : " << this->_multiset.size() << std::endl << "size max : " << this->_N << std::endl;
 	std::cout << std::endl;
 }
 
 unsigned int Span::shortestSpan()
 {
-	
-	printMultiset();
+	//TODO do this
 	return (0);
 }
 
 unsigned int Span::longestSpan()
 {
+	//TODO do this
 	return (0);
 }

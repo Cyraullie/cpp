@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:45:32 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/29 15:22:58 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/29 15:48:51 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 int main(void)
 {
-	Span spanou(6);
+	Span span(6);
 	Span empty;
 	Span ranger(10000);
 	try
 	{
 		std::cout << BOLD << "----- TOO MUCH NUMBER -----" << RESET << std::endl;
-		spanou.addNumber(3);
-		spanou.addNumber(6);
-		spanou.addNumber(42);
-		spanou.addNumber(-4);
-		spanou.addNumber(666);
-		spanou.addNumber(43);
-		spanou.addNumber(-2);
-		spanou.addNumber(56);
+		span.addNumber(3);
+		span.addNumber(6);
+		span.addNumber(42);
+		span.addNumber(-4);
+		span.addNumber(666);
+		span.addNumber(43);
+		span.addNumber(-2);
+		span.addNumber(56);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	spanou.printMultiset();
+	span.printMultiset();
 	try
 	{
-		std::cout << "longest span: " << spanou.longestSpan() << std::endl;
-		std::cout << "shortest span: " << spanou.shortestSpan() << std::endl;
+		std::cout << "longest span: " << span.longestSpan() << std::endl;
+		std::cout << "shortest span: " << span.shortestSpan() << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -65,16 +65,16 @@ int main(void)
 	// std::cout << BOLD << "----- TRY ASSIGNMENT OPERATOR OVERLOAD -----" << RESET << std::endl;
 	// try
 	// {
-	// 	std::cout << "*** try empty = spanou ***" << std::endl;
+	// 	std::cout << "*** try empty = span ***" << std::endl;
 	// 	std::cout << "empty before: ";
 	// 	empty.printMultiset();
-	// 	std::cout << "spanou before: ";
-	// 	spanou.printMultiset();
-	// 	empty = spanou;
+	// 	std::cout << "span before: ";
+	// 	span.printMultiset();
+	// 	empty = span;
 	// 	std::cout << "empty after: ";
 	// 	empty.printMultiset();
-	// 	std::cout << "spanou after: ";
-	// 	spanou.printMultiset();
+	// 	std::cout << "span after: ";
+	// 	span.printMultiset();
 	// }
 	// catch(const std::exception& e)
 	// {
