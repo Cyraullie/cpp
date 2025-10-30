@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:45:35 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/29 15:54:24 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/30 13:25:20 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ Span& Span::operator=(const Span& src)
 	std::cout << LIGHT_GREEN << "Span assignment operator called" << RESET << std::endl;
 	if (this != &src) {
 		this->_N = src._N;
+		this->_multiset.clear();
+		this->_multiset = src._multiset;
 	}
 	return *this;
 }
@@ -68,21 +70,21 @@ void Span::printMultiset() const
 
 unsigned int Span::shortestSpan()
 {
-	int smallest;
+	int shortest;
 	std::multiset<int>::iterator it = this->_multiset.begin();
 	std::multiset<int>::iterator next_it = it;
 
 	if (this->_multiset.size() <= 1)
 		throw std::length_error(RED "Error, too few elements" RESET);
 	next_it++;
-	smallest = *next_it - *it;
+	shortest = *next_it - *it;
 	while (next_it != this->_multiset.end())
 	{
-		smallest = std::min(smallest, *next_it - *it);
+		shortest = std::min(shortest, *next_it - *it);
 		it++;
 		next_it++;
 	}
-	return (smallest);
+	return (shortest);
 }
 
 unsigned int Span::longestSpan()

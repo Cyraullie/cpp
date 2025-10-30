@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:45:32 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/29 15:48:51 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/30 13:15:04 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,43 +60,43 @@ int main(void)
 	{
 		std::cerr  << e.what() << std::endl;
 	}
-	// std::cout << BOLD << "----- TRY TO DO OPERATION ON EMPTY SPAN -----" << RESET << std::endl;
-	// try
-	// {
-	// 	std::cout << "*** try to add number ***" << std::endl;
-	// 	empty.addNumber(96);
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-	// try
-	// {
-	// 	std::cout << "*** try to do longest span ***" << std::endl;
-	// 	empty.longestSpan();
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-	// std::cout << BOLD << "----- TRY ASSIGNMENT OPERATOR OVERLOAD -----" << RESET << std::endl;
-	// try
-	// {
-	// 	std::cout << "*** try empty = span ***" << std::endl;
-	// 	std::cout << "empty before: ";
-	// 	empty.printMultiset();
-	// 	std::cout << "span before: ";
-	// 	span.printMultiset();
-	// 	empty = span;
-	// 	std::cout << "empty after: ";
-	// 	empty.printMultiset();
-	// 	std::cout << "span after: ";
-	// 	span.printMultiset();
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;;
-	// }
+	std::cout << BOLD << "----- TRY TO DO OPERATION ON EMPTY SPAN -----" << RESET << std::endl;
+	try
+	{
+		std::cout << "*** try to add number ***" << std::endl;
+		empty.addNumber(96);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << "*** try to do longest span ***" << std::endl;
+		empty.longestSpan();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << BOLD << "----- TRY ASSIGNMENT OPERATOR OVERLOAD -----" << RESET << std::endl;
+	try
+	{
+		std::cout << "*** try empty = span ***" << std::endl;
+		std::cout << "empty before: ";
+		empty.printMultiset();
+		std::cout << "span before: ";
+		span.printMultiset();
+		empty = span;
+		std::cout << "empty after: ";
+		empty.printMultiset();
+		std::cout << "span after: ";
+		span.printMultiset();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;;
+	}
 
 	// std::cout << BOLD << "----- TRY TO ADD A RANGE OF NUMBERS -----" << RESET << std::endl;
 
