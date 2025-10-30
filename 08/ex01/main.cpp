@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:45:32 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/30 13:15:04 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/10/30 14:16:46 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(void)
 {
 	Span span(6);
 	Span empty;
-	Span ranger(10000);
+	Span ranger(20000);
 	try
 	{
 		std::cout << BOLD << "----- TOO MUCH NUMBER -----" << RESET << std::endl;
@@ -98,28 +98,31 @@ int main(void)
 		std::cerr << e.what() << std::endl;;
 	}
 
-	// std::cout << BOLD << "----- TRY TO ADD A RANGE OF NUMBERS -----" << RESET << std::endl;
+	std::cout << BOLD << "----- TRY TO ADD A RANGE OF NUMBERS -----" << RESET << std::endl;
 
-	// try
-	// {
-	// 	std::vector<int> v;
-	// 	std::vector<int> v2;
+	try
+	{
+		std::vector<int> v;
+		std::vector<int> v2;
 
-	// 	for (size_t i = 0; i < 10000; i++)
-	// 		v.push_back(i + 1);
+		for (size_t i = 0; i < 20000; i++)
+			v.push_back(i + 1);
 
-	// 	std::cout << "*** try to add 1000 number in range of 0 to 10000 ***" << std::endl;
-	// 	ranger.addNumbers(v.begin(), v.end());
-	// 	ranger.printMultiset();
+		std::cout << "*** try to add 1000 number in range of 0 to 10000 ***" << std::endl;
+		ranger.addNumbers(v.begin(), v.end());
+		ranger.printMultiset();
 
-	// 	std::cout << "*** try to add too much number with a range ***" << std::endl;
-	// 	for (size_t i = 0; i < 12000; i++)
-	// 		v2.push_back(i);
-	// 	ranger.addNumbers(v2.begin(), v2.end());
+		std::cout << "shortest span: " << ranger.shortestSpan() << std::endl;
+		std::cout << "longest span: " << ranger.longestSpan() << std::endl;
+		
+		std::cout << "*** try to add too much number with a range ***" << std::endl;
+		for (size_t i = 0; i < 22000; i++)
+			v2.push_back(i);
+		ranger.addNumbers(v2.begin(), v2.end());
 
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << RED << e.what() << RESET << std::endl;
-	// }
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << RESET << std::endl;
+	}
 }
