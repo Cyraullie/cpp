@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:19:30 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/12 15:01:59 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/11/12 15:32:03 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,15 +115,12 @@ void BitcoinExchange::getDbInput(std::string cmd)
 	date = cmd.substr(0, cmd.find(delimiter));
 	value = cmd.substr(cmd.find(delimiter) + delimiter.length(), cmd.length());
 	
-	//TODO check res is valid (not too large or too small)
-	//TODO if date dont exist in map find le plus proche
-
-	
 	if (!this->checkDate(date))
-		throw(BitcoinExchange::badInputException(date));
-	res = this->_db[date] * std::atof(value.c_str());
+		throw (BitcoinExchange::badInputException(date));
+	res = this->_db.lower_bound(date)->second * std::atof(value.c_str());
 	if (res < 0)
-		throw(BitcoinExchange::notPositiveException());
-	
+		throw (BitcoinExchange::notPositiveException());
+	if (std::atol(value.c_str()) > 1000)
+		throw (BitcoinExchange::tooLargeException());
 	std::cout << date << " => " << value << " = " << res << std::endl;
 }

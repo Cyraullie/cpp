@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:19:27 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/12 14:45:15 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/11/12 15:32:08 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <iostream>
 # include <fstream>
 # include <ctime>
-# include "colors.hpp"
 # include <map>
 # include <cstdlib>
+# include "colors.hpp"
 
 # define CSV "./data.csv"
 
@@ -48,7 +48,12 @@ class BitcoinExchange
 		class notPositiveException : public std::exception
 		{
 			public:
-				virtual const char *what() const throw(){return ("Error: not a positive number");};
+				virtual const char *what() const throw(){return ("Error: not a positive number.");};
+		};
+		class tooLargeException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw(){return ("Error: too large a number.");};
 		};
 		class badInputException : public std::exception
 		{
