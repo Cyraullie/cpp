@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:19:30 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/04 15:42:17 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/11/12 11:55:59 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,14 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
 		//this->_name = src._name;
 	}
 	return *this;
+}
+
+int BitcoinExchange::checkDate(std::string date)
+{
+	int year;
+	int month;
+	int day;
+	std::string delimiter = "-";
 }
 
 void BitcoinExchange::getDbInput(std::string cmd)

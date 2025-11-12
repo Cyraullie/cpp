@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:19:27 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/04 15:42:28 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/11/12 11:55:05 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class BitcoinExchange
 		void getDbInput(std::string cmd);
 
 		// *** OTHER METHODS***
+		int checkDate(std::string date);
 
 		class notPositiveException : public std::exception
 		{
