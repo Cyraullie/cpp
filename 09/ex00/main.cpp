@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:19:24 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/04 15:34:53 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/11/12 14:36:05 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int main(int ac, char **av)
 
 	//float value;
 
+	/*std::string t = "2012-01-11";
+	bc->checkDate(t);*/
 	//TODO j'enregistre la date en string ou je la mets en time_t ?
     std::cout << cmd.good() << std::endl;
 	if (cmd.good())
