@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+#include <stack>
+#include <cctype>
 
 //https://medium.com/@interviewbuddies/reverse-polish-notation-b88524252960
 
@@ -27,3 +29,24 @@
 //push 7
 // submiss stack (49 - 7) = 42
 // result 42
+
+int main(int ac, char **av)
+{
+	//std::stack st;
+	std::string cmd = av[1];
+	std::cout << ac << std::endl;
+	std::cout << av[1] << std::endl;
+
+	for (long unsigned int i = 0; i < cmd.length(); i++)
+	{
+		if (cmd[i] != ' ')
+		{
+			if (std::isdigit(cmd[i]))
+				std::cout << cmd[i] << std::endl;
+			else
+				std::cout << cmd[i] << std::endl;
+
+		}
+	}
+	return (0);
+}
