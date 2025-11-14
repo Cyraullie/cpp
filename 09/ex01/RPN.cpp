@@ -1,27 +1,22 @@
 #include "RPN.hpp"
 
 // Default constructor
-RPN::RPN() : _name("")
+RPN::RPN()
 {
 	std::cout << GREEN << "Default RPN constructor called" << RESET << std::endl;
 }
 
-// Data constructor
-RPN::RPN(std::string name) : _name(name)
-{
-	std::cout << LIGHT_GREEN << "RPN constructor called for " << ITALIC << name << RESET << std::endl;
-}
-
 // Copy constructor
-RPN::RPN(const RPN& cpy) : _name(cpy._name)
+RPN::RPN(const RPN& cpy)
 {
-	std::cout << LIGHT_GREEN << "RPN copy constructor called for " << ITALIC << cpy._name << RESET << std::endl;
+	(void)cpy;
+	//std::cout << LIGHT_GREEN << "RPN copy constructor called for "<< RESET << std::endl;
 }
 
 // Destructor
 RPN::~RPN()
 {
-	std::cout << RED << "RPN destructor called for " << ITALIC << this->_name << RESET << std::endl;
+	std::cout << RED << "RPN destructor called for " << RESET << std::endl;
 };
 
 // Copy assignment
@@ -29,18 +24,82 @@ RPN& RPN::operator=(const RPN& src)
 {
 	std::cout << LIGHT_GREEN << "RPN assignment operator called" << RESET << std::endl;
 	if (this != &src) {
-		this->_name = src._name;
+		//this->_name = src._name;
 	}
 	return *this;
 }
 
-// Example methods
-void RPN::setName(const std::string& name) 
+void RPN::pushData(float n)
 {
-	this->_name = name;
+	this->_lst.push_back(n);
 }
 
-const std::string& RPN::getName() const 
+void RPN::listData()
 {
-	return this->_name;
+	std::list<float>::iterator it;
+
+	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
+		std::cout << "result : " << *it << std::endl;
+	}
+}
+
+void RPN::clearList()
+{
+	size_t len = this->_lst.size();
+	for (size_t i = 0; i < len; i++)
+	{
+		this->_lst.pop_back();
+	}
+}
+
+void RPN::addition()
+{
+	float res = 0;
+	std::list<float>::iterator it;
+
+	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
+		std::cout << *it << " + " << res << std::endl;
+		res += *it;
+	}
+	this->clearList();
+	this->pushData(res);
+}
+
+void RPN::substraction()
+{
+	float res = 0;
+	std::list<float>::iterator it;
+
+	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
+		std::cout << *it << " - " << res << std::endl;
+		res -= *it;
+	}
+	this->clearList();
+	this->pushData(res);
+}
+
+void RPN::division()
+{
+	float res = 0;
+	std::list<float>::iterator it;
+
+	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
+		std::cout << *it << " / " << res << std::endl;
+		res /= *it;
+	}
+	this->clearList();
+	this->pushData(res);
+}
+
+void RPN::multiple()
+{
+	float res = 0;
+	std::list<float>::iterator it;
+
+	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
+		std::cout << *it << " * " << res << std::endl;
+		res *= *it;
+	}
+	this->clearList();
+	this->pushData(res);
 }

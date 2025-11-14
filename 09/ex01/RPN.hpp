@@ -3,13 +3,14 @@
 
 # include <string>
 # include <iostream>
-# include <stack>
+# include <list>
+# include <algorithm>
 # include "colors.hpp"
 
 class RPN
 {
 	private:
-		std::string _name;
+		std::list<float> _lst;
 
 	public:
 		// *** CANONICAL METHODS***
@@ -21,12 +22,16 @@ class RPN
 		RPN& operator=(const RPN& src);	// Copy assignment
 
 		// *** SET METHODS***
-		void setName(const std::string& name);
-
+		void pushData(float n);
 		// *** GET METHODS***
-		const std::string& getName() const;
+		void listData();
 
 		// *** OTHER METHODS***
+		void addition();
+		void substraction();
+		void division();
+		void multiple();
+		void clearList();
 
 };
 
