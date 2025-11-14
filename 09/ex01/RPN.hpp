@@ -31,7 +31,8 @@ class RPN
 		void substraction();
 		void division();
 		void multiple();
-		void clearList();
+		void clearList(int len);
+		int countListContent();
 
 };
 

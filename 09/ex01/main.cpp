@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 15:40:08 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/14 11:27:52 by cgoldens         ###   ########.fr       */
+/*   Updated: 2025/11/14 15:29:36 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,24 @@
 // submiss stack (49 - 7) = 42
 // result 42
 
+//1 2 * 2 / 2 * 2 4 - +
+//1*2 2
+//2/2 1
+//1*2 2
+//2-4 -2
+//2+2
+
 int main(int ac, char **av)
 {
 	RPN data;
 	std::list<float> lst;
 	std::string cmd = av[1];
-	std::cout << ac << std::endl;
-	std::cout << av[1] << std::endl;
+
+	if (ac != 2)
+	{
+		std::cout << "missing argument ./RPN \"1 1 +\"" << std::endl;
+		return (1);
+	}
 
 	for (long unsigned int i = 0; i < cmd.length(); i++)
 	{
@@ -41,54 +52,47 @@ int main(int ac, char **av)
 		{
 			if (std::isdigit(cmd[i]))
 			{
-				std::cout << cmd[i] << std::endl;
-				data.pushData(std::atof(&cmd[i]));
+				if (std::atof(&cmd[i]) < 10)
+					data.pushData(std::atof(&cmd[i]));
+				else
+				{
+					std::cout << "Error: invalid number (0 - 9)" << std::endl;
+					return (1);
+				}
 			}
 			else
 			{
-				std::cout << cmd[i] << std::endl;
 				switch (cmd[i])
 				{
 					case '+':
-						std::cout << "+++++++" << std::endl;
 						data.addition();
 						break;
 					case '-':
-						std::cout << "-------" << std::endl;
 						data.substraction();
-
 						break;
 					case '*':
-						std::cout << "*******" << std::endl;
 						data.multiple();
 
 						break;
 					case '/':
-						std::cout << "///////" << std::endl;
 						data.division();
 
 						break;
 					default:
-						std::cout << "Error" << std::endl;
+						std::cout << "Error: Invalid element '" << cmd[i] << "'" << std::endl;
 						return (1);
 						break;
 				}
-
-				data.listData();
 			}
 
 		}
 	}
-
-	// std::list<float>::iterator it;
-	// for (it = lst.begin(); it != lst.end(); ++it){
-	// 	std::cout << it->;
-	// }
-	// Source - https://stackoverflow.com/a
-// Posted by Simple
-// Retrieved 2025-11-14, License - CC BY-SA 3.0
-
-	data.listData();
-
+	if (data.countListContent() == 1)
+		data.listData();
+	else
+	{
+		std::cout << "Error: Too many element in final result" << std::endl;
+		return (1);
+	}
 	return (0);
 }
