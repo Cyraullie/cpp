@@ -39,67 +39,81 @@ void RPN::listData()
 	std::list<float>::iterator it;
 
 	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
-		std::cout << "result : " << *it << std::endl;
+		std::cout << *it << std::endl;
 	}
 }
 
-void RPN::clearList()
+void RPN::clearList(int len)
 {
-	size_t len = this->_lst.size();
-	for (size_t i = 0; i < len; i++)
-	{
+	for (int i = 0; i < len; i++)
 		this->_lst.pop_back();
-	}
 }
 
 void RPN::addition()
 {
 	float res = 0;
-	std::list<float>::iterator it;
+	float n1, n2;
+	std::list<float>::iterator it = --this->_lst.end();
 
-	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
-		std::cout << *it << " + " << res << std::endl;
-		res += *it;
-	}
-	this->clearList();
+	n2 = *it;
+	--it;
+
+	n1 = *it;
+	res = n1 + n2;
+
+	this->clearList(2);
 	this->pushData(res);
 }
 
 void RPN::substraction()
 {
 	float res = 0;
-	std::list<float>::iterator it;
+	float n1, n2;
+	std::list<float>::iterator it = --this->_lst.end();
 
-	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
-		std::cout << *it << " - " << res << std::endl;
-		res -= *it;
-	}
-	this->clearList();
+	n2 = *it;
+	--it;
+	
+	n1 = *it;
+	res = n1 - n2;
+	
+	this->clearList(2);
 	this->pushData(res);
 }
 
 void RPN::division()
 {
 	float res = 0;
-	std::list<float>::iterator it;
+	float n1, n2;
+	std::list<float>::iterator it = --this->_lst.end();
 
-	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
-		std::cout << *it << " / " << res << std::endl;
-		res /= *it;
-	}
-	this->clearList();
+	n2 = *it;
+	--it;
+	
+	n1 = *it;
+	res = n1 / n2;
+
+	this->clearList(2);
 	this->pushData(res);
 }
 
 void RPN::multiple()
 {
 	float res = 0;
-	std::list<float>::iterator it;
+	float n1, n2;
+	std::list<float>::iterator it = --this->_lst.end();
 
-	for (it = this->_lst.begin(); it != this->_lst.end(); ++it) {
-		std::cout << *it << " * " << res << std::endl;
-		res *= *it;
-	}
-	this->clearList();
+	n2 = *it;
+	--it;
+	
+	n1 = *it;
+	res = n1 * n2;
+
+	this->clearList(2);
 	this->pushData(res);
+}
+
+int RPN::countListContent()
+{
+	return (this->_lst.size());
 }
