@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:45:38 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/30 13:48:46 by cgoldens         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:00:50 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,7 @@ class Span
 
 		// *** SET METHODS***
 		void	addNumber(int n);
-		template<typename T>
-		void	addNumbers(T start, T end)
-		{
-			size_t dist = std::distance(start, end);
-			if (this->_multiset.size() + dist > this->_N)
-				throw std::out_of_range("Error, too few spaces to add the range of numbers");
-			this->_multiset.insert(start, end);
-		}
+		template<typename T> void Span::addNumbers(T start, T end);
 		
 		// *** GET METHODS***
 		unsigned int shortestSpan();

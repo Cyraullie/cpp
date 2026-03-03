@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 13:45:35 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/10/30 13:25:20 by cgoldens         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:00:27 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,15 @@ void Span::addNumber(int n)
 		this->_multiset.insert(n);
 	else
 		throw std::length_error(RED "Error, multiset is full" RESET);
+}
+
+template<typename T>
+void Span::addNumbers(T start, T end)
+{
+	size_t dist = std::distance(start, end);
+	if (this->_multiset.size() + dist > this->_N)
+		throw std::out_of_range("Error, too few spaces to add the range of numbers");
+	this->_multiset.insert(start, end);
 }
 
 void printNum(const int it)
