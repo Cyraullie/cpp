@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 15:40:08 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/14 15:37:09 by cgoldens         ###   ########.fr       */
+/*   Updated: 2026/03/04 11:36:14 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@
 
 int main(int ac, char **av)
 {
-	RPN data;
-	std::list<float> lst;
-	std::string cmd = av[1];
-
 	if (ac != 2)
 	{
 		std::cout << "missing argument ./RPN \"1 1 +\"" << std::endl;
 		return (1);
 	}
+
+	RPN data;
+	std::list<float> lst;
+	std::string cmd = av[1];
 
 	for (long unsigned int i = 0; i < cmd.length(); i++)
 	{
