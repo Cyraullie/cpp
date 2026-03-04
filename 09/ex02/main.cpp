@@ -1,13 +1,38 @@
 
 #include "PmergeMe.hpp"
 
+
+
+
+
+int checkArgs(char **args)
+{
+	for (int i = 1; args[i]; i++)
+	{
+		if (std::atoi(args[i]) == 0)
+		{
+			if (args[i][0] != '0')
+				return 0;
+		}
+		if (std::atoi(args[i]) < 0)
+			return 0;
+	}
+	return 1;
+}
+
 int main(int ac, char **av)
 {
 	if (ac < 2)
 	{
-		std::cout << RED << "Error: could not open file." << RESET << std::endl; 
+		std::cout << RED << "Error: not enough arguments" << RESET << std::endl; 
 		return (1);
 	}
+	if (!checkArgs(av))
+	{
+		std::cout << RED << "Error" << RESET << std::endl;
+		return (1);
+	}
+	PmergeMeVector pv(av);
 
 	//vector
 	//deque

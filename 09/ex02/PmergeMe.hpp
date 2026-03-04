@@ -1,10 +1,14 @@
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
+
 # include "colors.hpp"
+
 # include <iostream>
 # include <vector>
 # include <deque>
-#include <ctime>
+# include <ctime>
+# include <cstdlib>
+# include <algorithm>
 
 //std::deque<unsigned int> _deq;
 
@@ -18,14 +22,14 @@ class PmergeMeVector
 	public:
 		// *** CANONICAL METHODS***
 		PmergeMeVector();										// Default constructor
-		PmergeMeVector(std::string name);						// Data constructor
+		PmergeMeVector(char **args);						// Data constructor
 		PmergeMeVector(const PmergeMeVector& cpy);				// Copy constructor
 		~PmergeMeVector();									// Destructor
 
 		PmergeMeVector& operator=(const PmergeMeVector& src);	// Copy assignment
-		
+
 		void sort();
-		void printContainer();
+		void printContainer(std::string msg);
 };
 
 #endif
