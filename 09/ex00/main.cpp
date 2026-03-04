@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:19:24 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/12 15:28:07 by cgoldens         ###   ########.fr       */
+/*   Updated: 2026/03/04 13:37:18 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int ac, char **av)
 		return (1);
 	}
 	
-	BitcoinExchange *bc = new BitcoinExchange();
+	BitcoinExchange bc;
     std::map<std::string, float> data;
 	std::ifstream cmd(av[1]);
 	std::string name;
@@ -38,7 +38,7 @@ int main(int ac, char **av)
 			{
 				try
 				{
-					bc->getDbInput(name);
+					bc.getDbInput(name);
 				}
 				catch(const std::exception& e)
 				{
