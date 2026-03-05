@@ -16,7 +16,7 @@ class PmergeMeVector
 {
 	private:
 		std::vector<unsigned int> _vec;
-		 std::clock_t _start;
+		std::clock_t _start;
 
 
 	public:
@@ -30,6 +30,7 @@ class PmergeMeVector
 
 		void sort();
 		void printContainer(std::string msg);
+		void printTime();
 };
 
 #endif

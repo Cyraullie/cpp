@@ -34,6 +34,7 @@ int main(int ac, char **av)
 	}
 	PmergeMeVector pv(av);
 
+	pv.printTime();
 	//vector
 	//deque
 	//uniquement int 
