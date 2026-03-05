@@ -61,5 +61,5 @@ void PmergeMeVector::printContainer(std::string msg)
 
 void PmergeMeVector::printTime()
 {
-	std::cout << "Time to process a range of " << this->_vec.size() << " elements with std::vector : " << clock() - this->_start << std::endl;
+	std::cout << "Time to process a range of " << this->_vec.size() << " elements with std::vector : " << float(clock() - this->_start) / CLOCKS_PER_SEC << " sec" << std::endl;
 }
