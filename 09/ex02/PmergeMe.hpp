@@ -11,12 +11,19 @@
 # include <algorithm>
 
 //std::deque<unsigned int> _deq;
+# define vit std::vector<unsigned int>::iterator
+# define vi std::vector<unsigned int>
 
 class PmergeMeVector
 {
 	private:
-		std::vector<unsigned int> _vec;
+		vi _data;
+		size_t _order;
 		std::clock_t _start;
+
+		void pairSort();
+		void insertSort();
+		void swap(int i, int j);
 
 
 	public:

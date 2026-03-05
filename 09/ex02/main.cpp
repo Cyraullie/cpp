@@ -37,6 +37,8 @@ int main(int ac, char **av)
 	PmergeMeVector t = pv;
 	t.printContainer("Before: ");
 	pv.printContainer("Before: ");
+	pv.sort();
+	pv.printContainer("After: ");
 	pv.printTime();
 	//vector
 	//deque
