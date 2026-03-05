@@ -34,6 +34,9 @@ int main(int ac, char **av)
 	}
 	PmergeMeVector pv(av);
 
+	PmergeMeVector t = pv;
+	t.printContainer("Before: ");
+	pv.printContainer("Before: ");
 	pv.printTime();
 	//vector
 	//deque

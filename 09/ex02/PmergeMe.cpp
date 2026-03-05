@@ -2,11 +2,12 @@
 
 PmergeMeVector::PmergeMeVector()
 {
-
+	std::cout << GREEN << "Default PmergeMeVector constructor called" << RESET << std::endl;
 }
 
 PmergeMeVector::PmergeMeVector(char **args)
 {
+	std::cout << GREEN << "PmergeMeVector constructor with args called" << RESET << std::endl;
 	this->_start = clock();
 	for (int i = 1; args[i]; i++)
 	{
@@ -14,21 +15,31 @@ PmergeMeVector::PmergeMeVector(char **args)
 	}
 	this->printContainer("Before: ");
 }
-/*
-PmergeMeVector::PmergeMeVector(const PmergeMeVector& cpy)
-{
 
-}*/
+PmergeMeVector::PmergeMeVector(const PmergeMeVector& cpy): _vec(cpy._vec), _start(cpy._start)
+{
+	std::cout << LIGHT_GREEN << "PmergeMeVector copy constructor called" << RESET << std::endl;
+	
+}
 
 PmergeMeVector::~PmergeMeVector()
 {
+	std::cout << RED << "PmergeMeVector destructor called" << RESET << std::endl;
 
 }
-/*
+
 PmergeMeVector& PmergeMeVector::operator=(const PmergeMeVector& src)
 {
-
-}*/
+	std::cout << LIGHT_GREEN << "PmergeMeVector assignment operator called" << RESET << std::endl;
+	if (this != &src) {
+		//this->_name = src._name;
+		for (std::vector<unsigned int>::iterator it = this->_vec.begin(); it != this->_vec.end(); it++)
+		{
+			std::cout << *it << " ";
+		}
+	}
+	return *this;
+}
 
 void PmergeMeVector::sort()
 {
