@@ -6,33 +6,11 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 15:40:08 by cgoldens          #+#    #+#             */
-/*   Updated: 2026/03/04 11:36:14 by cgoldens         ###   ########.fr       */
+/*   Updated: 2026/03/05 11:01:06 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-//https://medium.com/@interviewbuddies/reverse-polish-notation-b88524252960
-
-//7 7 * 7 -
-//7 - 7 * 7
-
-//TODO container = stack
-//TODO push number 
-//TODO operand do and pop
-//7 7 * 7 -
-// push 7 push 7
-// multiple stack = 49
-// pop 7 pop 7
-//push 7
-// submiss stack (49 - 7) = 42
-// result 42
-
-//1 2 * 2 / 2 * 2 4 - +
-//1*2 2
-//2/2 1
-//1*2 2
-//2-4 -2
-//2+2
 
 int main(int ac, char **av)
 {
