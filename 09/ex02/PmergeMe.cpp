@@ -75,31 +75,77 @@ void PmergeMeVector::jacobSort(vi *main, vi *pend, vi *trash)
 		std::cout << (*trash)[i] << " ";
 
 	std::cout << std::endl;
-	vit it = main->begin();
-	for(size_t j = 0; j < pend->size() / this->_order; j++)
+
+
+	size_t mid = main->size() / this->_order / 2;
+	size_t mainPos = mid * this->_order + this->_order - 1;
+
+
+	for(size_t j = pend->size() / this->_order; j > 0; j--)
 	{
-		size_t pendPos = j * this->_order;
-		for(size_t i = 0; i < main->size() / this->_order; i++)
-		{
+
+		vit it = main->begin();
+		for (size_t i = 0; i < mainPos; i++)
 			it++;
-			size_t mainPos = i * this->_order;
-			std::cout << mainPos + this->_order << " "  ;
-			std::cout << (*main)[mainPos + this->_order - 1] << " " << std::endl;
-			if ((*main)[mainPos + this->_order - 1] > (*pend)[pendPos + this->_order - 1])
+		size_t pendPos = (j - 1) * this->_order + this->_order - 1;
+		std::cout << mid << " " << (j - 1)  << std::endl;
+		std::cout << mainPos << " " << *it << " " << (*pend)[pendPos]<< std::endl;
+		if (*it < (*pend)[pendPos])
+		{
+			std::cout << mainPos << " " << *it << " " << (*pend)[pendPos]<< std::endl;
+			it++;
+
+			std::cout << "pend : ";
+			for(size_t i = 0; i < pend->size(); i++)
+				std::cout << (*pend)[i] << " ";
+			std::cout << std::endl;
+			vit pit = pend->end();
+			pit--;
+			std::cout << "test " << pendPos << " " << pendPos - this->_order << std::endl;
+			//TODO le dernier le la liste marche pas parce que size_t est pas negatrif
+			for(size_t x = pendPos; x > pendPos - this->_order || x > 0; x--)
 			{
-				for(size_t x = pendPos; x < pendPos + this->_order; x++)
-				{
-					std::cout << "caca : " << pendPos << " " << pendPos + this->_order << " " << i * this->_order << std::endl;
-					main->insert(it, (*pend)[i]);
-				}
-				break;
+				std::cout << "caca : "<< x << " " << pendPos << " " << pendPos - this->_order << " " << std::endl;
+				main->insert(it, (*pend)[x]);
 			}
+			pend->erase(pend->end() - this->_order, pend->end());
+			std::cout << "pend : ";
+			for(size_t i = 0; i < pend->size(); i++)
+				std::cout << (*pend)[i] << " ";
+			std::cout << std::endl;
 		}
+		// size_t pendPos = j * this->_order;
+		// for(size_t i = 0; i < main->size() / this->_order; i++)
+		// {
+		// 	size_t mainPos = i * this->_order;
+		// 	std::cout << mainPos + this->_order << " "  ;
+		// 	std::cout << (*main)[mainPos + this->_order - 1] << " " << std::endl;
+		// 	if ((*main)[mainPos + this->_order - 1] > (*pend)[pendPos + this->_order - 1])
+		// 	{
+
+		// 		std::cout << "main : ";
+		// 		for(size_t i = 0; i < main->size(); i++)
+		// 			std::cout << (*main)[i] << " ";
+		// 		std::cout << std::endl;
+		// 		for(size_t x = pendPos + this->_order - 1; x > pendPos - 1; x--)
+		// 		{
+		// 			std::cout << "caca : "<< x << " " << pendPos << " " << pendPos + this->_order << " " << i * this->_order << std::endl;
+		// 			main->insert(it, (*pend)[x]);
+		// 		}
+		// 		std::cout << "main : ";
+		// 		for(size_t i = 0; i < main->size(); i++)
+		// 			std::cout << (*main)[i] << " ";
+		// 		std::cout << std::endl;
+		// 		break;
+		// 	}
+		// 	it++;
+		// }
 	}
 }
 
 void PmergeMeVector::insertSort()
 {
+	this->_order = 4;
 	std::cout << " ---- " << this->_order << std::endl;
 	//main
 	//pend
@@ -166,18 +212,18 @@ void PmergeMeVector::insertSort()
 	{
 		jacobSort(&main, &pend, &trash);
 	}
-	for(size_t i = 0; i < pend.size(); i++)
-		main.push_back(pend[i]);
+	// for(size_t i = 0; i < pend.size(); i++)
+	// 	main.push_back(pend[i]);
 	for(size_t i = 0; i < trash.size(); i++)
 		main.push_back(trash[i]);
 
 	this->_data = main;
 	this->printContainer("result : ");
-	if (this->_order / 2 > 0)
+	/*if (this->_order / 2 > 0)
 	{
 		this->_order /= 2;
 		this->insertSort();
-	}
+	}*/
 }
 
 //TODO maybe one day simplify that
