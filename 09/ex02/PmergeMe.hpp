@@ -24,6 +24,7 @@ class PmergeMeVector
 		void pairSort();
 		void insertSort();
 		void swap(int i, int j);
+		void jacobSort(vi *main, vi *pend, vi *trash);
 
 
 	public:
