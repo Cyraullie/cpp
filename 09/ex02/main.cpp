@@ -1,9 +1,6 @@
-
 #include "PmergeMe.hpp"
 
 //TODO ./PmergeMe 11 2 17 0 16 8 6 15 10 3 21 1 18 9 14 19 12 5 4 20 13 7
-
-
 
 int checkArgs(char **args)
 {
@@ -34,8 +31,6 @@ int main(int ac, char **av)
 	}
 	PmergeMeVector pv(av);
 
-	PmergeMeVector t = pv;
-	t.printContainer("Before: ");
 	pv.printContainer("Before: ");
 	pv.sort();
 	pv.printContainer("After: ");

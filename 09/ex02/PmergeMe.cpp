@@ -13,7 +13,6 @@ PmergeMeVector::PmergeMeVector(char **args) : _order(1)
 	{
 		this->_data.push_back(std::atoi(args[i]));
 	}
-	this->printContainer("Before: ");
 }
 
 PmergeMeVector::PmergeMeVector(const PmergeMeVector& cpy): _data(cpy._data), _order(cpy._order), _start(cpy._start)
@@ -60,87 +59,133 @@ void PmergeMeVector::swap(int i, int j)
 	this->_data[j] = swap;
 }
 
+vi PmergeMeVector::jacobsthal(size_t size)
+{
+	std::cout << size << std::endl;
+	vi j;
+	size_t range = 0;
+
+	j.push_back(0);
+	j.push_back(1);
+	while (true)
+	{
+		size_t next = j[j.size() - 1] + 2 * j[j.size() - 2];
+		if (range >= size)
+			break ;
+		range += (size_t)(j[j.size() - 1] - j[j.size() - 2]); 
+
+		j.push_back(next);
+	}
+	return (j);
+}
+
+void PmergeMeVector::insert(vi *main, vi *pend, vit it, size_t pendPos)
+{
+	for(size_t k = 0; k < this->_order; ++k)
+	{
+		size_t x = pendPos - k;
+		it = main->insert(it, (*pend)[x]);
+	}
+}
+
+void PmergeMeVector::standardBinary(vi *main, vi *pend)
+{
+	std::cout << "STANDARD" << std::endl;
+	(void)main;
+	(void)pend;
+}
+
+
+
+void PmergeMeVector::jacobsthalBinary(vi *main, vi *pend, vit ite)
+{
+	std::cout << "JACOB DE EMRDE" << std::endl;
+	// (void)main;
+	// (void)pend;
+	// (void)ite;
+	while (pend->size() != 0)
+	{
+		size_t nbrInsert = *ite - (*(ite - 1));
+		if (nbrInsert > (pend->size() / _order))
+		{
+			standardBinary(main, pend);
+			break ;
+		}
+
+		while (nbrInsert > 0)
+		{
+			std::cout << "ite : " << *ite << std::endl;
+			std::cout << "ite : " << nbrInsert << std::endl;
+			std::cout << "size : " << main->size() << " order : " << this->_order << " r " << main->size() / this->_order / 2 << std::endl;
+			size_t mid = main->size() / this->_order / 2;
+			size_t mainPos = mid * this->_order + this->_order - 1;
+
+			std::cout << "position in main : " << mainPos << " mid: " << mid << std::endl;
+			std::cout << "main: " ;
+			for (size_t p = 0; p < main->size(); p++)
+				std::cout << (*main)[p] << " ";
+			std::cout << std::endl;
+			std::cout << "pend: " ;
+			for (size_t p = 0; p < pend->size(); p++)
+				std::cout << (*pend)[p] << " ";
+			std::cout << std::endl;
+
+			for(size_t j = 0; j <= pend->size() / this->_order; j++)
+			{
+
+				vit it = main->begin();
+				for (size_t i = 0; i < mainPos; i++)
+					it++;
+
+				size_t pendPos = j * this->_order + this->_order - 1;
+				std::cout << pendPos << std::endl;
+				std::cout << *it << " " << (*pend)[pendPos] << std::endl;
+				if (*it < (*pend)[pendPos])
+				{
+					it++;
+
+					this->insert(main, pend, it, pendPos);
+					if (pend->size() >= this->_order)
+						pend->erase(pend->end() - this->_order, pend->end());
+					
+				}
+				else if (*it > (*pend)[pendPos])
+				{
+					it--;
+
+					this->insert(main, pend, it, pendPos);
+					if (pend->size() >= this->_order)
+						pend->erase(pend->end() - this->_order, pend->end());
+					
+				}
+			}
+			nbrInsert--;
+		}
+	}
+	
+	
+	
+}
+
+
+
 void PmergeMeVector::jacobSort(vi *main, vi *pend, vi *trash)
 {
-	std::cout << "main : ";
-	for(size_t i = 0; i < main->size(); i++)
-		std::cout << (*main)[i] << " ";
-	std::cout << std::endl;
-	std::cout << "pend : ";
-	for(size_t i = 0; i < pend->size(); i++)
-		std::cout << (*pend)[i] << " ";
-	std::cout << std::endl;
-	std::cout << "trash : ";
-	for(size_t i = 0; i < trash->size(); i++)
-		std::cout << (*trash)[i] << " ";
 
-	std::cout << std::endl;
+	vi j = jacobsthal(pend->size() / this->_order);
+	vit ite = std::find(j.begin(), j.end(), 3);
+	if (ite == j.end())
+		standardBinary(main, pend);
+	else
+		jacobsthalBinary(main, pend, ite);
 
-
-	size_t mid = main->size() / this->_order / 2;
-	size_t mainPos = mid * this->_order + this->_order - 1;
-
-
-	for(size_t j = pend->size() / this->_order; j > 0; j--)
+	if (!trash->empty())
 	{
-
-		vit it = main->begin();
-		for (size_t i = 0; i < mainPos; i++)
-			it++;
-		size_t pendPos = (j - 1) * this->_order + this->_order - 1;
-		std::cout << mid << " " << (j - 1)  << std::endl;
-		std::cout << mainPos << " " << *it << " " << (*pend)[pendPos]<< std::endl;
-		if (*it < (*pend)[pendPos])
-		{
-			std::cout << mainPos << " " << *it << " " << (*pend)[pendPos]<< std::endl;
-			it++;
-
-			std::cout << "pend : ";
-			for(size_t i = 0; i < pend->size(); i++)
-				std::cout << (*pend)[i] << " ";
-			std::cout << std::endl;
-			vit pit = pend->end();
-			pit--;
-			std::cout << "test " << pendPos << " " << pendPos - this->_order << std::endl;
-			//TODO le dernier le la liste marche pas parce que size_t est pas negatrif
-			for(size_t x = pendPos; x > pendPos - this->_order || x > 0; x--)
-			{
-				std::cout << "caca : "<< x << " " << pendPos << " " << pendPos - this->_order << " " << std::endl;
-				main->insert(it, (*pend)[x]);
-			}
-			pend->erase(pend->end() - this->_order, pend->end());
-			std::cout << "pend : ";
-			for(size_t i = 0; i < pend->size(); i++)
-				std::cout << (*pend)[i] << " ";
-			std::cout << std::endl;
-		}
-		// size_t pendPos = j * this->_order;
-		// for(size_t i = 0; i < main->size() / this->_order; i++)
-		// {
-		// 	size_t mainPos = i * this->_order;
-		// 	std::cout << mainPos + this->_order << " "  ;
-		// 	std::cout << (*main)[mainPos + this->_order - 1] << " " << std::endl;
-		// 	if ((*main)[mainPos + this->_order - 1] > (*pend)[pendPos + this->_order - 1])
-		// 	{
-
-		// 		std::cout << "main : ";
-		// 		for(size_t i = 0; i < main->size(); i++)
-		// 			std::cout << (*main)[i] << " ";
-		// 		std::cout << std::endl;
-		// 		for(size_t x = pendPos + this->_order - 1; x > pendPos - 1; x--)
-		// 		{
-		// 			std::cout << "caca : "<< x << " " << pendPos << " " << pendPos + this->_order << " " << i * this->_order << std::endl;
-		// 			main->insert(it, (*pend)[x]);
-		// 		}
-		// 		std::cout << "main : ";
-		// 		for(size_t i = 0; i < main->size(); i++)
-		// 			std::cout << (*main)[i] << " ";
-		// 		std::cout << std::endl;
-		// 		break;
-		// 	}
-		// 	it++;
-		// }
+		for (vit ite = trash->begin(); ite != trash->end(); ite++)
+			main->push_back(*ite);
+		trash->clear();
 	}
+	
 }
 
 void PmergeMeVector::insertSort()
@@ -212,18 +257,14 @@ void PmergeMeVector::insertSort()
 	{
 		jacobSort(&main, &pend, &trash);
 	}
-	// for(size_t i = 0; i < pend.size(); i++)
-	// 	main.push_back(pend[i]);
-	for(size_t i = 0; i < trash.size(); i++)
-		main.push_back(trash[i]);
 
 	this->_data = main;
 	this->printContainer("result : ");
-	/*if (this->_order / 2 > 0)
-	{
-		this->_order /= 2;
-		this->insertSort();
-	}*/
+	// if (this->_order / 2 > 0)
+	// {
+	// 	this->_order /= 2;
+	// 	this->insertSort();
+	// }
 }
 
 //TODO maybe one day simplify that
@@ -247,14 +288,16 @@ void PmergeMeVector::pairSort()
 		i += _order;
 	}
 
-	this->printContainer("uwu: ");
 	if ((size_t)(this->_order * 2 ) * 2 < this->_data.size())
 	{
 		this->_order *= 2;
 		this->pairSort();
 	}
 	else 
+	{
+		this->printContainer("uwu: ");
 		this->insertSort();
+	}
 
 }
 

@@ -25,6 +25,10 @@ class PmergeMeVector
 		void insertSort();
 		void swap(int i, int j);
 		void jacobSort(vi *main, vi *pend, vi *trash);
+		vi jacobsthal(size_t size);
+		void jacobsthalBinary(vi *main, vi *pend, vit ite);
+		void standardBinary(vi *main, vi *pend);
+		void insert(vi *main, vi *pend, vit it, size_t pendPos);
 
 
 	public:
