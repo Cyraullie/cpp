@@ -30,17 +30,15 @@ int main(int ac, char **av)
 		return (1);
 	}
 	PmergeMeVector pv(av);
+	PmergeMeDeque pdq(av);
 
 	pv.printContainer("Before: ");
 	pv.sort();
 	pv.printContainer("After: ");
+	pdq.printContainer("Before: ");
+	pdq.sort();
+	pdq.printContainer("After: ");
 	pv.printTime();
-	//vector
-	//deque
-	//uniquement int 
-	//print before
-	//print after
-	//time to process container 1
-	//time to process container 2
+	pdq.printTime();
 	return (0);
 }
