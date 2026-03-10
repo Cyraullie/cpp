@@ -313,7 +313,10 @@ void PmergeMeVector::pairSort()
 
 void PmergeMeVector::sort()
 {
+	this->printContainer("Before: ");
 	this->pairSort();
+	this->printContainer("After: ");
+	this->printTime();
 }
 
 void printNum(const unsigned int it)
@@ -323,14 +326,15 @@ void printNum(const unsigned int it)
 
 void PmergeMeVector::printContainer(std::string msg)
 {
-	std::cout << msg;
+	std::cout << CYAN << std::boolalpha << msg;
 	std::for_each(this->_data.begin(), this->_data.end(), printNum);
-	std::cout << std::endl;
+	std::cout << "\nis sorted : " << isSorted(this->_data.begin(), this->_data.end()) << std::endl;
+	std::cout << RESET << std::endl;
 }
 
 void PmergeMeVector::printTime()
 {
-	std::cout << "Time to process a range of " << this->_data.size() << " elements with std::vector : " << float(clock() - this->_start) / CLOCKS_PER_SEC << " sec" << std::endl;
+	std::cout << BLUE << "Time to process a range of "<< BOLD << this->_data.size() << RESET << BLUE << " elements with std::vector : " << BOLD << float(clock() - this->_start) / CLOCKS_PER_SEC << RESET << BLUE << " sec" << RESET << std::endl;
 }
 
 
@@ -634,18 +638,21 @@ void PmergeMeDeque::pairSort()
 
 void PmergeMeDeque::sort()
 {
-	this->_order *= 2;
+	this->printContainer("Before: ");
 	this->pairSort();
+	this->printContainer("After: ");
+	this->printTime();
 }
 
 void PmergeMeDeque::printContainer(std::string msg)
 {
-	std::cout << msg;
+	std::cout << MAGENTA << std::boolalpha << msg;
 	std::for_each(this->_data.begin(), this->_data.end(), printNum);
-	std::cout << std::endl;
+	std::cout << "\nis sorted : " << isSorted(this->_data.begin(), this->_data.end()) << std::endl;
+	std::cout << RESET << std::endl;
 }
 
 void PmergeMeDeque::printTime()
 {
-	std::cout << "Time to process a range of " << this->_data.size() << " elements with std::deque : " << float(clock() - this->_start) / CLOCKS_PER_SEC << " sec" << std::endl;
+	std::cout << BLUE << "Time to process a range of "<< BOLD << this->_data.size() << RESET << BLUE << " elements with std::deque : " << BOLD << float(clock() - this->_start) / CLOCKS_PER_SEC << RESET << BLUE << " sec" << RESET << std::endl;
 }

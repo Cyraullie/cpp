@@ -32,13 +32,7 @@ int main(int ac, char **av)
 	PmergeMeVector pv(av);
 	PmergeMeDeque pdq(av);
 
-	pv.printContainer("Before: ");
 	pv.sort();
-	pv.printContainer("After: ");
-	pdq.printContainer("Before: ");
 	pdq.sort();
-	pdq.printContainer("After: ");
-	pv.printTime();
-	pdq.printTime();
 	return (0);
 }
