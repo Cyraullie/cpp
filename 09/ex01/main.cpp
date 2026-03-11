@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 15:40:08 by cgoldens          #+#    #+#             */
-/*   Updated: 2026/03/11 11:49:05 by cgoldens         ###   ########.fr       */
+/*   Updated: 2026/03/11 12:02:34 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,34 @@ int main(int ac, char **av)
 			}
 			else
 			{
-				switch (cmd[i])
+				if (data.countListContent() >= 2)
 				{
-					case '+':
-						data.addition();
-						break;
-					case '-':
-						data.substraction();
-						break;
-					case '*':
-						data.multiple();
+					switch (cmd[i])
+					{
+						case '+':
+							data.addition();
+							break;
+						case '-':
+							data.substraction();
+							break;
+						case '*':
+							data.multiple();
 
-						break;
-					case '/':
-						data.division();
+							break;
+						case '/':
+							data.division();
 
-						break;
-					default:
-						std::cout << "Error: Invalid element '" << cmd[i] << "'" << std::endl;
-						return (1);
-						break;
+							break;
+						default:
+							std::cout << "Error: Invalid element '" << cmd[i] << "'" << std::endl;
+							return (1);
+							break;
+					}
+				}
+				else
+				{
+					std::cout << "Error: Not enough number in calculation" << std::endl;
+					return (1);
 				}
 			}
 
