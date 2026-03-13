@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:19:24 by cgoldens          #+#    #+#             */
-/*   Updated: 2026/03/04 13:37:18 by cgoldens         ###   ########.fr       */
+/*   Updated: 2026/03/13 11:37:36 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,22 @@ int main(int ac, char **av)
 	std::ifstream cmd(av[1]);
 	std::string name;
 
-	if (cmd.good())
+	if (bc.getCSVStatus())
 	{
-		while (std::getline(cmd, name))
+		if (cmd.good())
 		{
-			if (name.find("date"))
+			while (std::getline(cmd, name))
 			{
-				try
+				if (name.find("date"))
 				{
-					bc.getDbInput(name);
-				}
-				catch(const std::exception& e)
-				{
-					std::cerr << e.what() << '\n';
+					try
+					{
+						bc.getDbInput(name);
+					}
+					catch(const std::exception& e)
+					{
+						std::cerr << e.what() << '\n';
+					}
 				}
 			}
 		}

@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:19:30 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/12 15:32:03 by cgoldens         ###   ########.fr       */
+/*   Updated: 2026/03/13 11:38:06 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ BitcoinExchange::BitcoinExchange()
 
 	if (db.good())
 	{
+		this->_csv = 1;
 		//insert in map
 		while (std::getline(db, name))
 		{
@@ -32,7 +33,12 @@ BitcoinExchange::BitcoinExchange()
 			value = name.substr(name.find(delimiter) + 1, name.length());		
 			this->_db.insert(std::make_pair(date, std::atof(value.c_str())));
 		}
-	}	
+	}
+	else
+	{
+		std::cout << RED << "Error: no " << CSV << " in root" << RESET << std::endl;
+		this->_csv = 0;
+	}
 }
 
 // Copy constructor
@@ -123,4 +129,10 @@ void BitcoinExchange::getDbInput(std::string cmd)
 	if (std::atol(value.c_str()) > 1000)
 		throw (BitcoinExchange::tooLargeException());
 	std::cout << date << " => " << value << " = " << res << std::endl;
+}
+
+
+int BitcoinExchange::getCSVStatus()
+{
+	return this->_csv;
 }

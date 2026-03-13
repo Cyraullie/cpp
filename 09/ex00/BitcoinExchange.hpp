@@ -6,7 +6,7 @@
 /*   By: cgoldens <cgoldens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:19:27 by cgoldens          #+#    #+#             */
-/*   Updated: 2025/11/12 15:32:08 by cgoldens         ###   ########.fr       */
+/*   Updated: 2026/03/13 11:38:24 by cgoldens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class BitcoinExchange
 {
 	private:
 		std::map<std::string, float> _db;
+		int _csv;
 
 	public:
 		// *** CANONICAL METHODS***
@@ -41,6 +42,7 @@ class BitcoinExchange
 
 		// *** GET METHODS***
 		void getDbInput(std::string cmd);
+		int getCSVStatus();
 
 		// *** OTHER METHODS***
 		bool checkDate(std::string date);
